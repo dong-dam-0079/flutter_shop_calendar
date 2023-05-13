@@ -1,0 +1,95 @@
+name: shop_laptop_project
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.17.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+  # https://pub.dev/packages/get
+  get: ^4.6.5
+
+  # https://pub.dev/packages/dio
+  dio: ^5.1.2
+  http: ^0.13.6
+
+  # https://pub.dev/packages/pretty_dio_logger
+  pretty_dio_logger: ^1.2.0-beta-1
+
+  # https://pub.dev/packages/retrofit
+  retrofit: '>=4.0.0 <5.0.0'
+  logger: ^1.1.0 #for logging purpose
+
+  # https://pub.dev/packages/json_annotation
+  json_annotation: ^4.8.0
+
+  # DI
+  # https://pub.dev/packages/get_it
+  get_it: ^7.2.0
+
+  # https://pub.dev/packages/injectable
+  injectable: ^2.1.1
+
+  # Support manager routers for Flutter.
+  # https://pub.dev/packages/fluro
+  fluro: ^2.0.5
+
+  # https://pub.dev/packages/either_dart
+  either_dart: ^0.3.0
+
+  # https://pub.dev/packages/shared_preferences
+  shared_preferences: ^2.1.0
+
+  # Support multi languages
+  # https://pub.dev/packages/intl
+  intl: ^0.17.0
+
+  # https://pub.dev/packages/url_launcher
+  url_launcher: ^6.1.10
+
+  # https://pub.dev/packages/firebase_core
+  firebase_core: ^1.24.0
+
+  # https://pub.dev/packages/flutter_svg
+  flutter_svg: ^2.0.5
+
+  # https://pub.dev/packages/cached_network_image
+  cached_network_image: ^3.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+  # https://pub.dev/packages/build_runner
+  build_runner:
+
+  # Support generate for retrofit
+  # https://pub.dev/packages/json_serializable
+  retrofit_generator:
+  json_serializable: ^6.3.1
+
+  # Support generate for injectable_generator
+  # https://pub.dev/packages/injectable_generator
+  injectable_generator:
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+    -
+flutter_intl:
+  enabled: true
