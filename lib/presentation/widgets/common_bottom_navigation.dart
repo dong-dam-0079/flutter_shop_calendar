@@ -6,7 +6,7 @@ import '../../common/res/dimens.dart';
 import '../../generated/l10n.dart';
 import 'common_icons.dart';
 
-enum BottomNavItem { home, shop, favorite, profile }
+enum BottomNavItem { home, shop, cart, profile }
 
 class CommonBottomNavigation extends StatelessWidget {
   const CommonBottomNavigation({
@@ -40,9 +40,9 @@ class CommonBottomNavigation extends StatelessWidget {
           label: S.current.shop,
         ),
         _buildNavItem(
-          activeIcon: Assets.icFavorite,
-          icon: Assets.icFavorite,
-          label: S.current.favorite,
+          activeIcon: Assets.icCart,
+          icon: Assets.icCart,
+          label: S.current.cart,
         ),
         _buildNavItem(
           activeIcon: Assets.icProfile,

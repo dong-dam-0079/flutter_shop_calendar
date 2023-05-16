@@ -1,6 +1,10 @@
 {
   "home": "Home",
   "shop": "Shop",
-  "favorite": "Favorite",
-  "profile": "Profile"
+  "cart": "Cart",
+  "profile": "Profile",
+  "button_go_favorite": "Favorite",
+  "button_go_history": "History",
+  "title_new": "New",
+  "title_popular": "Popular"
 }

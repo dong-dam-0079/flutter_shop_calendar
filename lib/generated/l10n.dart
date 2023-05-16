@@ -70,11 +70,11 @@ class S {
     );
   }
 
-  /// `Favorite`
-  String get favorite {
+  /// `Cart`
+  String get cart {
     return Intl.message(
-      'Favorite',
-      name: 'favorite',
+      'Cart',
+      name: 'cart',
       desc: '',
       args: [],
     );
@@ -85,6 +85,46 @@ class S {
     return Intl.message(
       'Profile',
       name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite`
+  String get button_go_favorite {
+    return Intl.message(
+      'Favorite',
+      name: 'button_go_favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get button_go_history {
+    return Intl.message(
+      'History',
+      name: 'button_go_history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New`
+  String get title_new {
+    return Intl.message(
+      'New',
+      name: 'title_new',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular`
+  String get title_popular {
+    return Intl.message(
+      'Popular',
+      name: 'title_popular',
       desc: '',
       args: [],
     );
