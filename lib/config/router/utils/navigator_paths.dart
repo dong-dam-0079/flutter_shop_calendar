@@ -3,6 +3,8 @@ class NavigatorPaths {
   static const main = '/main';
   static const home = '/home';
   static const shop = '/shop';
-  static const favorite = '/favorite';
+  static const cart = '/cart';
   static const profile = '/profile';
+  static const favorite = '/favorite';
+  static const history = '/history';
 }

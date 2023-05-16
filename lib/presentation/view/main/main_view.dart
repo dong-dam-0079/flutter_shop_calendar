@@ -19,13 +19,13 @@ class _MainViewState extends State<MainView> with BaseMixin {
   final _navigatorKeys = {
     BottomNavItem.home: GlobalKey<NavigatorState>(),
     BottomNavItem.shop: GlobalKey<NavigatorState>(),
-    BottomNavItem.favorite: GlobalKey<NavigatorState>(),
+    BottomNavItem.cart: GlobalKey<NavigatorState>(),
     BottomNavItem.profile: GlobalKey<NavigatorState>(),
   };
   final _navigatorObservers = {
     BottomNavItem.home: CommonNavigatorObserver(),
     BottomNavItem.shop: CommonNavigatorObserver(),
-    BottomNavItem.favorite: CommonNavigatorObserver(),
+    BottomNavItem.cart: CommonNavigatorObserver(),
     BottomNavItem.profile: CommonNavigatorObserver(),
   };
   var _currentNavItem = BottomNavItem.home;
@@ -40,7 +40,7 @@ class _MainViewState extends State<MainView> with BaseMixin {
           children: <Widget>[
             _buildOffstageNavigator(BottomNavItem.home),
             _buildOffstageNavigator(BottomNavItem.shop),
-            _buildOffstageNavigator(BottomNavItem.favorite),
+            _buildOffstageNavigator(BottomNavItem.cart),
             _buildOffstageNavigator(BottomNavItem.profile),
           ],
         ),
@@ -69,8 +69,8 @@ class _MainViewState extends State<MainView> with BaseMixin {
         return NavigatorPaths.home;
       case BottomNavItem.shop:
         return NavigatorPaths.shop;
-      case BottomNavItem.favorite:
-        return NavigatorPaths.favorite;
+      case BottomNavItem.cart:
+        return NavigatorPaths.cart;
       case BottomNavItem.profile:
         return NavigatorPaths.profile;
     }
