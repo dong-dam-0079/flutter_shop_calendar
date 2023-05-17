@@ -13,7 +13,11 @@ class Assets {
   static const icSearch = '$pathIcons/ic_search.svg';
   static const icMenu = '$pathIcons/ic_menu.svg';
   static const icHistory = '$pathIcons/ic_history.svg';
+  static const icBack = '$pathIcons/ic_back.svg';
+  static const icPlus = '$pathIcons/ic_plus.svg';
+  static const icMinus = '$pathIcons/ic_minus.svg';
 
   /// Images
   static const imgKeyboard = '$pathImages/keyboard.jpg';
+  static const imgChair = '$pathImages/chair.jpeg';
 }

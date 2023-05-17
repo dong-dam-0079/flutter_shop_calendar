@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "shop": MessageLookupByLibrary.simpleMessage("Shop"),
+        "tab_device": MessageLookupByLibrary.simpleMessage("Device"),
+        "tab_service": MessageLookupByLibrary.simpleMessage("Service"),
         "title_new": MessageLookupByLibrary.simpleMessage("New"),
         "title_popular": MessageLookupByLibrary.simpleMessage("Popular")
       };

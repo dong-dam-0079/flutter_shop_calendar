@@ -129,6 +129,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Device`
+  String get tab_device {
+    return Intl.message(
+      'Device',
+      name: 'tab_device',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service`
+  String get tab_service {
+    return Intl.message(
+      'Service',
+      name: 'tab_service',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

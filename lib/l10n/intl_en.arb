@@ -6,5 +6,7 @@
   "button_go_favorite": "Favorite",
   "button_go_history": "History",
   "title_new": "New",
-  "title_popular": "Popular"
+  "title_popular": "Popular",
+  "tab_device": "Device",
+  "tab_service": "Service"
 }
