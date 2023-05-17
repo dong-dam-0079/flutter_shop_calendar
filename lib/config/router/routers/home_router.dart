@@ -1,5 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:shop_laptop_project/presentation/view/cart/cart_view.dart';
+import 'package:shop_laptop_project/presentation/view/detail/detail_view.dart';
 import 'package:shop_laptop_project/presentation/view/favorite/favorite_view.dart';
 import 'package:shop_laptop_project/presentation/view/home/home_view.dart';
 import 'package:shop_laptop_project/presentation/view/login/login_view.dart';
@@ -62,12 +63,26 @@ class HomeRouter extends IRouterProvider {
         return const FavoriteView();
       }),
     );
+
+    router.define(
+      NavigatorPaths.detail,
+      handler: Handler(handlerFunc: (context, __) {
+        return const DetailView();
+      }),
+    );
   }
 
   static void goMainView(context) {
     NavigatorUtils.pushAndRemoveUntil(
       context,
       NavigatorPaths.main,
+    );
+  }
+
+  static void goDetail(context) {
+    NavigatorUtils.push(
+      context,
+      NavigatorPaths.detail,
     );
   }
 

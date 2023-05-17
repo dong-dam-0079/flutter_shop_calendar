@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ColorsRes {
   /// Main colors
   static const primary = Color(0xFF011275);
-  static const secondary = Color(0xff011275);
+  static const secondary = Color(0xffef8c25);
   static const contentLightTheme = Color(0xFF1D1D35);
   static const contentDarkTheme = Color(0xFFF5FCF9);
   static const backgroundTheme = Color(0xFFFFFFFF);

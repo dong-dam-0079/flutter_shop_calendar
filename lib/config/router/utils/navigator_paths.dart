@@ -7,4 +7,5 @@ class NavigatorPaths {
   static const profile = '/profile';
   static const favorite = '/favorite';
   static const history = '/history';
+  static const detail = '/detail';
 }
