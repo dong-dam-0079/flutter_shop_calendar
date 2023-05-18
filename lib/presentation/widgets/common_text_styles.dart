@@ -9,6 +9,12 @@ class CommonTextStyles {
     fontSize: DimensRes.sp16,
   );
 
+  static const title = TextStyle(
+    color: ColorsRes.primary,
+    fontSize: DimensRes.sp32,
+    fontWeight: FontWeight.w700,
+  );
+
   static const large = TextStyle(
     color: ColorsRes.black,
     fontSize: DimensRes.sp24,

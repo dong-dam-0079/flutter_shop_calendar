@@ -149,6 +149,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Add to cart`
+  String get button_add_to_cart {
+    return Intl.message(
+      'Add to cart',
+      name: 'button_add_to_cart',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

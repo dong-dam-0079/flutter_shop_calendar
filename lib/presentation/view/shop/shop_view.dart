@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 
 import '../../../common/res/colors.dart';
 import '../../../common/res/dimens.dart';
 import '../../../generated/l10n.dart';
+import '../../widgets/common_app_bar.dart';
+import '../../widgets/common_gaps.dart';
 import '../../widgets/common_text_styles.dart';
 
 class ShopView extends StatefulWidget {
@@ -16,6 +19,7 @@ class _ShopViewState extends State<ShopView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _buildAppBar(),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: DimensRes.sp16),
@@ -24,10 +28,7 @@ class _ShopViewState extends State<ShopView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Home',
-                  style: CommonTextStyles.largeBold,
-                ),
+                Gaps.vLine,
                 _buildTabTitle(),
                 _buildTabView(),
               ],
@@ -38,12 +39,35 @@ class _ShopViewState extends State<ShopView> {
     );
   }
 
+  CommonAppBar _buildAppBar() {
+    return CommonAppBar(
+      automaticallyImplyLeading: false,
+      widgetTitle: Padding(
+        padding: const EdgeInsets.only(left: DimensRes.sp16),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Text(
+            S.current.shop,
+            style: CommonTextStyles.title,
+          ),
+        ),
+      ),
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(1),
+        child: Container(
+          color: ColorsRes.primary,
+          height: 1,
+        ),
+      ),
+    );
+  }
+
   Widget _buildTabTitle() {
     return Container(
       height: DimensRes.sp44,
       width: double.infinity,
       margin: const EdgeInsets.symmetric(
-        vertical: DimensRes.sp32,
+        vertical: DimensRes.sp16,
       ),
       padding: const EdgeInsets.all(DimensRes.sp4),
       decoration: const BoxDecoration(
@@ -88,8 +112,9 @@ class _ShopViewState extends State<ShopView> {
   }
 
   Widget _buildTabItem() {
-    return Container(
-      color: ColorsRes.red,
+    return const CommonListShop(
+      isVertical: true,
+      isShopButton: true,
     );
   }
 }

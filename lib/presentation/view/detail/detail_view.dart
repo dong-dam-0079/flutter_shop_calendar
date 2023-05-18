@@ -8,6 +8,7 @@ import 'package:shop_laptop_project/presentation/widgets/common_gaps.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
 
 import '../../../common/res/colors.dart';
+import '../../../generated/l10n.dart';
 
 class DetailView extends StatefulWidget {
   const DetailView({Key? key}) : super(key: key);
@@ -26,19 +27,24 @@ class _DetailScreenState extends State<DetailView> {
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
-          SizedBox(
-            height: hImage,
-            width: double.infinity,
-            child: Image.asset(
-              Assets.imgChair,
-              fit: BoxFit.fill,
+          Hero(
+            tag: 'hero',
+            child: SizedBox(
+              height: hImage,
+              width: double.infinity,
+              child: Image.asset(
+                Assets.imgChair,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           Positioned(
             top: kTextTabBarHeight,
             left: DimensRes.sp20,
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               icon: SvgPicture.asset(
                 Assets.icBack,
                 height: DimensRes.sp24,
@@ -130,7 +136,7 @@ class _DetailScreenState extends State<DetailView> {
               width: double.infinity,
               child: CommonButton(
                 onPressed: () {},
-                title: 'Add to cart',
+                title: S.current.button_add_to_cart,
               ),
             )
           ],

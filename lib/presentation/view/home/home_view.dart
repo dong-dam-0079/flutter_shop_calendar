@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_laptop_project/config/router/routers/home_router.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_app_bar.dart';
+import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
 
 import '../../../common/constants/assets.dart';
@@ -47,8 +47,10 @@ class _HomeViewState extends State<HomeView> {
               style: CommonTextStyles.largeBold,
             ),
             Gaps.vGap8,
-            Expanded(
-              child: _buildListPopular(),
+            const Expanded(
+              child: CommonListShop(
+                isVertical: true,
+              ),
             ),
           ],
         ),
@@ -92,123 +94,13 @@ class _HomeViewState extends State<HomeView> {
                   ),
                 ),
               ),
-              Expanded(
-                child: _buildContentList(),
+              const Expanded(
+                child: CommonItemList(isVertical: false),
               ),
             ],
           ),
         );
       },
-    );
-  }
-
-  Widget _buildListPopular() {
-    return ListView.builder(
-      itemCount: 5,
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return Container(
-          width: double.infinity,
-          padding: const EdgeInsets.only(bottom: DimensRes.sp16),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.all(DimensRes.sp4),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(DimensRes.sp16),
-                    color: ColorsRes.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorsRes.primary.withOpacity(0.4),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: const Offset(0, 0.5),
-                      )
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(DimensRes.sp16),
-                    child: Image.asset(
-                      Assets.imgKeyboard,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              ),
-              Gaps.hGap12,
-              Expanded(
-                flex: 3,
-                child: _buildContentList(isVertical: true),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildContentList({
-    bool? isVertical,
-  }) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: isVertical ?? true
-          ? MainAxisAlignment.center
-          : MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Flexible(
-          child: Text(
-            'Keyboard FL-esport',
-            style: CommonTextStyles.medium,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        Gaps.vGap4,
-        Row(
-          mainAxisAlignment: isVertical ?? false
-              ? MainAxisAlignment.start
-              : MainAxisAlignment.center,
-          children: [
-            Flexible(
-              child: RatingBar.builder(
-                itemSize: DimensRes.sp16,
-                initialRating: 3.5,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemBuilder: (context, _) => const Icon(
-                  Icons.star,
-                  color: Colors.amber,
-                ),
-                onRatingUpdate: (rating) {},
-              ),
-            ),
-            Gaps.hGap8,
-            const Text(
-              '3.5',
-              style: CommonTextStyles.mediumBold,
-            ),
-          ],
-        ),
-        Gaps.vGap4,
-        Visibility(
-          visible: isVertical ?? false,
-          child: Flexible(
-            child: Text(
-              'Lorem ternjkand ndansc bhjdab nwdjkqda nasjd nc nadjsa jncabjhd bndja badsjb bdasbc asdj bja',
-              style: CommonTextStyles.small.copyWith(color: ColorsRes.textGray),
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -219,14 +111,9 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.only(left: DimensRes.sp16),
         child: Align(
           alignment: Alignment.centerLeft,
-          child: RichText(
-            text: const TextSpan(
-                text: 'Hello Pan\n',
-                style: CommonTextStyles.largeBold,
-                children: [
-                  TextSpan(
-                      text: 'Welcome back', style: CommonTextStyles.large18)
-                ]),
+          child: Text(
+            S.current.home,
+            style: CommonTextStyles.title,
           ),
         ),
       ),
