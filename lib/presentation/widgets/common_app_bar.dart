@@ -43,8 +43,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           Text(
             title ?? '',
             style: titleTextStyle ??
-                CommonTextStyles.medium.copyWith(
-                  color: ColorsRes.white,
+                CommonTextStyles.title.copyWith(
+                  color: ColorsRes.primary,
                 ),
             textAlign: TextAlign.center,
             maxLines: 1,

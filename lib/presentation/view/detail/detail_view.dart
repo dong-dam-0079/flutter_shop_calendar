@@ -41,14 +41,20 @@ class _DetailScreenState extends State<DetailView> {
           Positioned(
             top: kTextTabBarHeight,
             left: DimensRes.sp20,
-            child: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: SvgPicture.asset(
-                Assets.icBack,
-                height: DimensRes.sp24,
-                width: DimensRes.sp24,
+            child: Container(
+              decoration: BoxDecoration(
+                color: ColorsRes.white,
+                borderRadius: BorderRadius.circular(DimensRes.sp16),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: SvgPicture.asset(
+                  Assets.icBack,
+                  height: DimensRes.sp24,
+                  width: DimensRes.sp24,
+                ),
               ),
             ),
           ),

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "button_add_to_cart":
             MessageLookupByLibrary.simpleMessage("Add to cart"),
+        "button_buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "button_go_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "button_go_history": MessageLookupByLibrary.simpleMessage("History"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
@@ -33,6 +34,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "tab_device": MessageLookupByLibrary.simpleMessage("Device"),
         "tab_service": MessageLookupByLibrary.simpleMessage("Service"),
         "title_new": MessageLookupByLibrary.simpleMessage("New"),
-        "title_popular": MessageLookupByLibrary.simpleMessage("Popular")
+        "title_order_info": MessageLookupByLibrary.simpleMessage("Order Info"),
+        "title_popular": MessageLookupByLibrary.simpleMessage("Popular"),
+        "title_ship": MessageLookupByLibrary.simpleMessage("Shipping Cost"),
+        "title_sub_total": MessageLookupByLibrary.simpleMessage("Subtotal"),
+        "title_total": MessageLookupByLibrary.simpleMessage("Total")
       };
 }

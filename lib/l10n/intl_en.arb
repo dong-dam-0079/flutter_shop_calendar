@@ -9,5 +9,10 @@
   "title_popular": "Popular",
   "tab_device": "Device",
   "tab_service": "Service",
-  "button_add_to_cart": "Add to cart"
+  "button_add_to_cart": "Add to cart",
+  "title_order_info": "Order Info",
+  "title_sub_total": "Subtotal",
+  "title_ship": "Shipping Cost",
+  "title_total": "Total",
+  "button_buy": "Buy"
 }

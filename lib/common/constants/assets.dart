@@ -16,6 +16,7 @@ class Assets {
   static const icBack = '$pathIcons/ic_back.svg';
   static const icPlus = '$pathIcons/ic_plus.svg';
   static const icMinus = '$pathIcons/ic_minus.svg';
+  static const icDelete = '$pathIcons/ic_trash.svg';
 
   /// Images
   static const imgKeyboard = '$pathImages/keyboard.jpg';
