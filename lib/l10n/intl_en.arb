@@ -14,5 +14,7 @@
   "title_sub_total": "Subtotal",
   "title_ship": "Shipping Cost",
   "title_total": "Total",
-  "button_buy": "Buy"
+  "button_buy": "Buy",
+  "title_price": "Price",
+  "empty": "Empty Order"
 }

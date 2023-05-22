@@ -1,6 +1,7 @@
 class Assets {
   static const pathIcons = 'assets/icons';
   static const pathImages = 'assets/images';
+  static const pathJson = 'assets/shop_item.json';
 
   /// Icons
   static const icVisibleOff = '$pathIcons/ic_visible_off.svg';
@@ -17,8 +18,10 @@ class Assets {
   static const icPlus = '$pathIcons/ic_plus.svg';
   static const icMinus = '$pathIcons/ic_minus.svg';
   static const icDelete = '$pathIcons/ic_trash.svg';
+  static const icSad = '$pathIcons/ic_sad.svg';
 
   /// Images
   static const imgKeyboard = '$pathImages/keyboard.jpg';
   static const imgChair = '$pathImages/chair.jpeg';
+  static const imgSetting = '$pathImages/img_setting.png';
 }

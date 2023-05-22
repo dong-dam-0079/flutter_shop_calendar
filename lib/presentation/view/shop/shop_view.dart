@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shop_laptop_project/config/di/app_module.dart';
+import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
+import 'package:shop_laptop_project/presentation/view/shop/controller/shop_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 
 import '../../../common/res/colors.dart';
 import '../../../common/res/dimens.dart';
+import '../../../data/model/shop_model.dart';
 import '../../../generated/l10n.dart';
 import '../../widgets/common_app_bar.dart';
 import '../../widgets/common_gaps.dart';
@@ -16,6 +21,15 @@ class ShopView extends StatefulWidget {
 }
 
 class _ShopViewState extends State<ShopView> {
+  final _shopController = serviceLocator<ShopController>();
+  final _cartController = serviceLocator<CartController>();
+
+  @override
+  void initState() {
+    super.initState();
+    _shopController.getListShop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,19 +116,24 @@ class _ShopViewState extends State<ShopView> {
 
   Widget _buildTabView() {
     return Expanded(
-      child: TabBarView(
-        children: [
-          _buildTabItem(),
-          _buildTabItem(),
-        ],
+      child: Obx(
+        () => _shopController.isLoading.value
+            ? const Center(child: CircularProgressIndicator())
+            : TabBarView(
+                children: [
+                  _buildTabItem(_shopController.shopDevices),
+                  _buildTabItem(_shopController.shopServices),
+                ],
+              ),
       ),
     );
   }
 
-  Widget _buildTabItem() {
-    return const CommonListShop(
+  Widget _buildTabItem(List<ShopModel> listShop) {
+    return CommonListShop(
       isVertical: true,
       isShopButton: true,
+      shop: listShop,
     );
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:shop_laptop_project/config/di/app_module.dart';
 import 'package:shop_laptop_project/config/router/routers/home_router.dart';
+import 'package:shop_laptop_project/data/model/shop_model.dart';
+import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
 
 import '../../common/constants/assets.dart';
@@ -12,39 +15,48 @@ import 'common_gaps.dart';
 import 'common_text_styles.dart';
 
 class CommonListShop extends StatelessWidget {
-  const CommonListShop({
+  CommonListShop({
     Key? key,
     required this.isVertical,
     this.isShopButton,
-    this.isCart,
+    this.isShowRating,
+    required this.shop,
+    this.isSlidable,
   }) : super(key: key);
 
   final bool isVertical;
   final bool? isShopButton;
-  final bool? isCart;
+  final bool? isShowRating;
+  final bool? isSlidable;
+  final List<ShopModel> shop;
+
+  final _cartController = serviceLocator<CartController>();
 
   @override
   Widget build(BuildContext context) {
     return SlidableAutoCloseBehavior(
       child: ListView.builder(
-        itemCount: 5,
+        itemCount: shop.length,
         shrinkWrap: true,
         itemBuilder: (context, index) {
+          var item = shop[index];
+
           return InkWell(
             onTap: () {
-              HomeRouter.goDetail(context);
+              HomeRouter.goDetail(context, shopModel: item);
             },
             child: Hero(
-              tag: 'hero',
+              tag: item.shopId,
               child: Container(
                 margin: const EdgeInsets.only(bottom: DimensRes.sp16),
+                padding: const EdgeInsets.all(DimensRes.sp4),
                 decoration: BoxDecoration(
-                  color: ColorsRes.borderList.withOpacity(0.4),
+                  color: ColorsRes.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(DimensRes.sp16),
                 ),
                 child: Slidable(
                   key: UniqueKey(),
-                  enabled: isCart ?? false,
+                  enabled: isSlidable ?? false,
                   groupTag: 'group',
                   endActionPane: ActionPane(
                     extentRatio: 0.25,
@@ -62,7 +74,7 @@ class CommonListShop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: _itemList(),
+                  child: _itemList(item),
                 ),
               ),
             ),
@@ -72,11 +84,10 @@ class CommonListShop extends StatelessWidget {
     );
   }
 
-  Container _itemList() {
+  Container _itemList(ShopModel item) {
     return Container(
-      decoration: BoxDecoration(
-          color: ColorsRes.borderList.withOpacity(0.4),
-          borderRadius: BorderRadius.circular(DimensRes.sp16)),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.circular(DimensRes.sp16)),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -98,10 +109,15 @@ class CommonListShop extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(DimensRes.sp16),
-                child: Image.asset(
-                  Assets.imgKeyboard,
-                  fit: BoxFit.fill,
-                ),
+                child: item.isCateDevices
+                    ? Image.asset(
+                        Assets.imgSetting,
+                        fit: BoxFit.fill,
+                      )
+                    : Image.asset(
+                        Assets.imgKeyboard,
+                        fit: BoxFit.fill,
+                      ),
               ),
             ),
           ),
@@ -111,6 +127,11 @@ class CommonListShop extends StatelessWidget {
             child: CommonItemList(
               isVertical: isVertical,
               isShopButton: isShopButton,
+              isShowRating: isShowRating,
+              item: item,
+              onClickAdd: () {
+                _cartController.addToCart(item);
+              },
             ),
           ),
           Gaps.hGap4,
@@ -125,12 +146,16 @@ class CommonItemList extends StatelessWidget {
     super.key,
     required this.isVertical,
     this.isShopButton,
-    this.isCart,
+    this.isShowRating,
+    required this.item,
+    this.onClickAdd,
   });
 
   final bool isVertical;
   final bool? isShopButton;
-  final bool? isCart;
+  final bool? isShowRating;
+  final ShopModel item;
+  final Function()? onClickAdd;
 
   @override
   Widget build(BuildContext context) {
@@ -138,17 +163,17 @@ class CommonItemList extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Flexible(
+        Flexible(
           child: Text(
-            'Keyboard FL-esport',
+            item.itemName,
             style: CommonTextStyles.medium,
-            maxLines: 1,
+            maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
         ),
         Gaps.vGap4,
         Visibility(
-          visible: isCart ?? false,
+          visible: isShowRating ?? true,
           child: Row(
             mainAxisAlignment:
                 isVertical ? MainAxisAlignment.start : MainAxisAlignment.center,
@@ -156,11 +181,9 @@ class CommonItemList extends StatelessWidget {
               Flexible(
                 child: RatingBar.builder(
                   itemSize: DimensRes.sp16,
-                  initialRating: 3.5,
-                  minRating: 1,
+                  initialRating: item.rating,
                   direction: Axis.horizontal,
                   allowHalfRating: true,
-                  itemCount: 5,
                   itemBuilder: (context, _) => const Icon(
                     Icons.star,
                     color: Colors.amber,
@@ -169,8 +192,8 @@ class CommonItemList extends StatelessWidget {
                 ),
               ),
               Gaps.hGap8,
-              const Text(
-                '3.5',
+              Text(
+                item.rating.toString(),
                 style: CommonTextStyles.mediumBold,
               ),
             ],
@@ -181,9 +204,21 @@ class CommonItemList extends StatelessWidget {
           visible: isVertical,
           child: Flexible(
             child: Text(
-              'Lorem ternjkand ndansc bhjdab nwdjkqda nasjd nc nadjsa jncabjhd bndja badsjb bdasbc asdj bja',
+              item.describe,
               style: CommonTextStyles.small.copyWith(color: ColorsRes.darkGray),
-              maxLines: 3,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
+        Gaps.vGap8,
+        Visibility(
+          visible: isVertical,
+          child: Flexible(
+            child: Text(
+              '\$${item.price}',
+              style: CommonTextStyles.mediumBold,
+              maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
           ),
@@ -194,7 +229,7 @@ class CommonItemList extends StatelessWidget {
           child: SizedBox(
             width: double.infinity,
             child: CommonButton(
-              onPressed: () {},
+              onPressed: onClickAdd,
               title: S.current.button_add_to_cart,
               padding: const EdgeInsets.symmetric(vertical: DimensRes.sp8),
             ),

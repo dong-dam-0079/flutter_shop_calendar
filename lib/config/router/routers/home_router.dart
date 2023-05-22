@@ -1,4 +1,5 @@
 import 'package:fluro/fluro.dart';
+import 'package:shop_laptop_project/data/model/shop_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/cart_view.dart';
 import 'package:shop_laptop_project/presentation/view/detail/detail_view.dart';
 import 'package:shop_laptop_project/presentation/view/favorite/favorite_view.dart';
@@ -67,7 +68,9 @@ class HomeRouter extends IRouterProvider {
     router.define(
       NavigatorPaths.detail,
       handler: Handler(handlerFunc: (context, __) {
-        return const DetailView();
+        final data = context?.settings?.arguments as ShopModel;
+
+        return DetailView(item: data);
       }),
     );
   }
@@ -79,10 +82,14 @@ class HomeRouter extends IRouterProvider {
     );
   }
 
-  static void goDetail(context) {
+  static void goDetail(
+    context, {
+    required ShopModel shopModel,
+  }) {
     NavigatorUtils.push(
       context,
       NavigatorPaths.detail,
+      sendData: shopModel,
     );
   }
 

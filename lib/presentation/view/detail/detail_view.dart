@@ -3,32 +3,42 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_laptop_project/common/constants/assets.dart';
 import 'package:shop_laptop_project/common/res/dimens.dart';
+import 'package:shop_laptop_project/data/model/shop_model.dart';
+import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
+import 'package:shop_laptop_project/presentation/view/favorite/controller/fav_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_gaps.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
 
 import '../../../common/res/colors.dart';
+import '../../../config/di/app_module.dart';
 import '../../../generated/l10n.dart';
 
 class DetailView extends StatefulWidget {
-  const DetailView({Key? key}) : super(key: key);
+  const DetailView({Key? key, required this.item}) : super(key: key);
+
+  final ShopModel item;
 
   @override
   State<DetailView> createState() => _DetailScreenState();
 }
 
 class _DetailScreenState extends State<DetailView> {
+  final _cartController = serviceLocator<CartController>();
+  final _favController = serviceLocator<FavController>();
+
   @override
   Widget build(BuildContext context) {
     var hImage = MediaQuery.of(context).size.height * 0.6;
     var hContent = MediaQuery.of(context).size.height * 0.45;
+    final shop = widget.item;
 
     return Scaffold(
       extendBodyBehindAppBar: true,
       body: Stack(
         children: [
           Hero(
-            tag: 'hero',
+            tag: shop.shopId,
             child: SizedBox(
               height: hImage,
               width: double.infinity,
@@ -58,20 +68,20 @@ class _DetailScreenState extends State<DetailView> {
               ),
             ),
           ),
-          _buildContent(hContent),
+          _buildContent(hContent, shop),
         ],
       ),
     );
   }
 
-  Align _buildContent(double hContent) {
+  Align _buildContent(double hContent, ShopModel shop) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
         height: hContent,
         width: double.infinity,
         padding: const EdgeInsets.symmetric(
-          vertical: DimensRes.sp24,
+          vertical: DimensRes.sp16,
           horizontal: DimensRes.sp16,
         ),
         decoration: BoxDecoration(
@@ -93,14 +103,16 @@ class _DetailScreenState extends State<DetailView> {
           children: [
             Row(
               children: [
-                const Expanded(
+                Expanded(
                   child: Text(
-                    'name',
+                    shop.itemName,
                     style: CommonTextStyles.largeBold,
                   ),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    _favController.setItemFavorite(shop);
+                  },
                   icon: SvgPicture.asset(
                     Assets.icFavorite,
                     height: DimensRes.sp24,
@@ -112,7 +124,7 @@ class _DetailScreenState extends State<DetailView> {
             Gaps.vGap8,
             RatingBar.builder(
               itemSize: DimensRes.sp24,
-              initialRating: 3.5,
+              initialRating: shop.rating,
               minRating: 1,
               direction: Axis.horizontal,
               allowHalfRating: true,
@@ -123,25 +135,27 @@ class _DetailScreenState extends State<DetailView> {
               ),
               onRatingUpdate: (rating) {},
             ),
-            Gaps.vGap16,
-            const Expanded(
+            Gaps.vGap8,
+            Expanded(
               child: Text(
-                'data',
+                shop.describe,
                 style: CommonTextStyles.medium,
               ),
             ),
             Gaps.vGap16,
             Text(
-              'Price',
+              S.current.title_price,
               style: CommonTextStyles.mediumBold
                   .copyWith(color: ColorsRes.textGray),
             ),
-            _buildPrice(),
-            Gaps.vGap16,
+            _buildPrice(shop.price),
+            Gaps.vGap8,
             SizedBox(
               width: double.infinity,
               child: CommonButton(
-                onPressed: () {},
+                onPressed: () {
+                  _cartController.addToCart(shop);
+                },
                 title: S.current.button_add_to_cart,
               ),
             )
@@ -151,12 +165,12 @@ class _DetailScreenState extends State<DetailView> {
     );
   }
 
-  Row _buildPrice() {
+  Row _buildPrice(double price) {
     return Row(
       children: [
-        const Expanded(
+        Expanded(
           child: Text(
-            '43',
+            '\$$price',
             style: CommonTextStyles.largeBold,
           ),
         ),

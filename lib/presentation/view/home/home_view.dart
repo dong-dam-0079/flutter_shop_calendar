@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:shop_laptop_project/config/di/app_module.dart';
 import 'package:shop_laptop_project/config/router/routers/home_router.dart';
+import 'package:shop_laptop_project/presentation/view/home/controller/home_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_app_bar.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
@@ -19,6 +22,14 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final _homeController = serviceLocator<HomeController>();
+
+  @override
+  void initState() {
+    super.initState();
+    _homeController.getListShop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,32 +38,39 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.only(
           left: DimensRes.sp16,
           right: DimensRes.sp16,
-          top: DimensRes.sp28,
+          top: DimensRes.sp16,
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              S.current.title_new,
-              style: CommonTextStyles.largeBold,
-            ),
-            Gaps.vGap8,
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 4,
-              child: _buildListNew(),
-            ),
-            Gaps.vGap16,
-            Text(
-              S.current.title_popular,
-              style: CommonTextStyles.largeBold,
-            ),
-            Gaps.vGap8,
-            const Expanded(
-              child: CommonListShop(
-                isVertical: true,
-              ),
-            ),
-          ],
+        child: Obx(
+          () => _homeController.isLoading.value
+              ? const Center(child: CircularProgressIndicator())
+              : Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      S.current.title_new,
+                      style: CommonTextStyles.largeBold,
+                    ),
+                    Gaps.vGap8,
+                    Obx(
+                      () => SizedBox(
+                        height: MediaQuery.of(context).size.height / 3.5,
+                        child: _buildListNew(),
+                      ),
+                    ),
+                    Gaps.vGap16,
+                    Text(
+                      S.current.title_popular,
+                      style: CommonTextStyles.largeBold,
+                    ),
+                    Gaps.vGap8,
+                    Expanded(
+                      child: CommonListShop(
+                        isVertical: true,
+                        shop: _homeController.shopPopular,
+                      ),
+                    ),
+                  ],
+                ),
         ),
       ),
     );
@@ -60,44 +78,55 @@ class _HomeViewState extends State<HomeView> {
 
   Widget _buildListNew() {
     return ListView.builder(
-      itemCount: 5,
+      itemCount: _homeController.shopNews.length,
       shrinkWrap: true,
       scrollDirection: Axis.horizontal,
       itemBuilder: (context, index) {
-        return Container(
-          width: MediaQuery.of(context).size.width / 2.8,
-          margin: const EdgeInsets.only(right: DimensRes.sp12),
-          child: Column(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                  margin: const EdgeInsets.all(DimensRes.sp4),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(DimensRes.sp16),
-                    color: ColorsRes.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: ColorsRes.primary.withOpacity(0.4),
-                        spreadRadius: 1,
-                        blurRadius: 3,
-                        offset: const Offset(0, 0.5),
-                      )
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(DimensRes.sp16),
-                    child: Image.asset(
-                      Assets.imgKeyboard,
-                      fit: BoxFit.fill,
+        var news = _homeController.shopNews[index];
+
+        return InkWell(
+          onTap: () {
+            HomeRouter.goDetail(context, shopModel: news);
+          },
+          child: Container(
+            width: MediaQuery.of(context).size.width / 2.8,
+            margin: const EdgeInsets.only(right: DimensRes.sp12),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    margin: const EdgeInsets.all(DimensRes.sp4),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(DimensRes.sp16),
+                      color: ColorsRes.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColorsRes.primary.withOpacity(0.4),
+                          spreadRadius: 1,
+                          blurRadius: 3,
+                          offset: const Offset(0, 0.5),
+                        )
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(DimensRes.sp16),
+                      child: Image.asset(
+                        Assets.imgKeyboard,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const Expanded(
-                child: CommonItemList(isVertical: false),
-              ),
-            ],
+                Expanded(
+                  child: CommonItemList(
+                    isVertical: false,
+                    item: news,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

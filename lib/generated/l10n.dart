@@ -209,6 +209,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Price`
+  String get title_price {
+    return Intl.message(
+      'Price',
+      name: 'title_price',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty Order`
+  String get empty {
+    return Intl.message(
+      'Empty Order',
+      name: 'empty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

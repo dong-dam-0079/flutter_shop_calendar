@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "button_go_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "button_go_history": MessageLookupByLibrary.simpleMessage("History"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "empty": MessageLookupByLibrary.simpleMessage("Empty Order"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "shop": MessageLookupByLibrary.simpleMessage("Shop"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "title_new": MessageLookupByLibrary.simpleMessage("New"),
         "title_order_info": MessageLookupByLibrary.simpleMessage("Order Info"),
         "title_popular": MessageLookupByLibrary.simpleMessage("Popular"),
+        "title_price": MessageLookupByLibrary.simpleMessage("Price"),
         "title_ship": MessageLookupByLibrary.simpleMessage("Shipping Cost"),
         "title_sub_total": MessageLookupByLibrary.simpleMessage("Subtotal"),
         "title_total": MessageLookupByLibrary.simpleMessage("Total")

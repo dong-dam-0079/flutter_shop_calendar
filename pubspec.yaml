@@ -71,7 +71,9 @@ dependencies:
   cached_network_image: ^3.2.3
 
   flutter_rating_bar: ^4.0.1
+
   google_fonts: ^4.0.4
+
   flutter_slidable: ^3.0.0
 
 dev_dependencies:
@@ -99,6 +101,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/shop_item.json
 
 flutter_intl:
   enabled: true

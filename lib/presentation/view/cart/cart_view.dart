@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:shop_laptop_project/config/di/app_module.dart';
+import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_app_bar.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 
+import '../../../common/constants/assets.dart';
 import '../../../common/res/colors.dart';
 import '../../../common/res/dimens.dart';
 import '../../../generated/l10n.dart';
@@ -17,6 +22,8 @@ class CartView extends StatefulWidget {
 }
 
 class _CartViewState extends State<CartView> {
+  final _cartController = serviceLocator<CartController>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,10 +33,32 @@ class _CartViewState extends State<CartView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Expanded(
-              child: CommonListShop(
-                isVertical: true,
-                isCart: true,
+            Expanded(
+              child: Obx(
+                () => _cartController.orderList.isEmpty
+                    ? Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              Assets.icSad,
+                              width: DimensRes.sp32,
+                              height: DimensRes.sp32,
+                            ),
+                            Gaps.hGap8,
+                            Text(
+                              S.current.empty,
+                              style: CommonTextStyles.mediumBold,
+                            ),
+                          ],
+                        ),
+                      )
+                    : CommonListShop(
+                        isVertical: true,
+                        isShowRating: false,
+                        isSlidable: true,
+                        shop: _cartController.orderList,
+                      ),
               ),
             ),
             Gaps.vGap2,

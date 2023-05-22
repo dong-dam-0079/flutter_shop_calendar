@@ -1,0 +1,175 @@
+{
+  "list": [
+    {
+      "id": "shop-1",
+      "name": "Chuột Có dây Gaming Logitech G102 Gen2 Lightsync ",
+      "category": 0,
+      "describe": "Mệnh danh là một “siêu chuột quốc dân\" Logitech G102 Gen 2 Lightsync sở hữu hiệu năng cực cao cùng loạt tính năng",
+      "rating": 4.8,
+      "price": 20,
+      "is_new": 0
+    },
+    {
+      "id": "shop-2",
+      "name": "Bàn Phím Có Dây DareU EK87",
+      "category": 0,
+      "describe": "DareU EK87 - chiếc bàn phím Tenkeyless 87 phím đến từ nhà DareU, thiết kế từ nhựa ABS kết hợp cùng Red Switch mang lại âm thanh gõ phím cực kỳ đã tai. Chiếc bàn phím này cực kỳ phù hợp với các khách hàng trẻ.",
+      "rating": 3.8,
+      "price": 25,
+      "is_new": 1
+    },
+    {
+      "id": "shop-3",
+      "name": "Bàn phím Magic Keyboard với Touch ID và Numeric Keypad Apple",
+      "category": 0,
+      "describe": "Bàn phím Magic Keyboard với Touch ID và Numeric Keypad Apple cho thiết kế mỏng nhẹ, phản hồi nhanh chóng, điều khiển dễ dàng,...",
+      "rating": 4.6,
+      "price": 32,
+      "is_new": 0
+    },
+    {
+      "id": "shop-4",
+      "name": "Chuột Bluetooth Apple MK2E3",
+      "category": 0,
+      "describe": "Chuột Apple MK2E3 làm việc hiệu quả cùng các thiết bị vận hành trên hệ điều hành MacOS",
+      "rating": 4.1,
+      "price": 15,
+      "is_new": 0
+    },
+    {
+      "id": "shop-5",
+      "name": "Chuột Có dây Gaming Asus TUF M3",
+      "category": 0,
+      "describe": "Chuột Gaming Asus TUF M3 Đen có thiết kế nhỏ gọn, cùng chất liệu nhựa có độ ma sát cao giúp cho việc cầm nắm chắc chắn hơn. Thiết kế công thái học phù hợp với người thuận tay phải.",
+      "rating": 3.5,
+      "price": 12,
+      "is_new": 1
+    },
+    {
+      "id": "shop-6",
+      "name": "Chuột Có dây Gaming HyperX Pulsefire FPS Pro RGB",
+      "category": 0,
+      "describe": "Chuột chiến game độ nhạy cao với cảm biến quang học đến 16.000 DPI ",
+      "rating": 4.0,
+      "price": 24,
+      "is_new": 0
+    },
+    {
+      "id": "shop-7",
+      "name": "Bàn Phím Có Dây Gaming MSI Vigor GK30 US",
+      "category": 0,
+      "describe": "Bàn phím Có dây Gaming MSI Vigor GK30 US Đen với chân đế gaming vững vàng ngay bên dưới phím Space Bar đem đến sự vững vàng, chống trượt khi chơi game.",
+      "rating": 4.0,
+      "price": 25,
+      "is_new": 0
+    },
+    {
+      "id": "shop-8",
+      "name": "Bàn phím Gaming Logitech G610 Orion - Có dây",
+      "category": 0,
+      "describe": "G610 Orion được chăm chút từ các chi tiết tinh tế nhất, như kết cấu mờ phủ vân tay và dây cáp bện có độ bền cao, tới chi tiết phức tạp nhất, mỗi khía cạnh đều được thiết kế chính xác",
+      "rating": 4.0,
+      "price": 34,
+      "is_new": 0
+    },
+    {
+      "id": "shop-9",
+      "name": "Bàn phím Keydous NJ81 Mạch xuôi",
+      "category": 0,
+      "describe": "KIT NJ81 MẠCH XUÔI có 3 chế độ kết nối (Bluetooth, Type C, Receiver 2,4G) để có thể kết nối phù hợp vs các thiết bị tương thích cũng như thuận tiện cho công việc văn phòng hoặc chơi game",
+      "rating": 4.7,
+      "price": 60,
+      "is_new": 1
+    },
+    {
+      "id": "shop-10",
+      "name": "Bàn phím Keydous NJ68 Pro KIT",
+      "category": 0,
+      "describe": "3 chế độ kết nối (Bluetooth, Type C, Receiver 2,4G) để có thể kết nối phù hợp vs các thiết bị tương thích",
+      "rating": 4.1,
+      "price": 65,
+      "is_new": 1
+    },
+    {
+      "id": "shop-11",
+      "name": "Chuột Gaming không dây Logitech G304 Prodigy",
+      "category": 0,
+      "describe": "Chuột Gaming không dây Logitech G304 Prodigy - Hiệu quả gaming tối ưu dành cho bạn",
+      "rating": 3.9,
+      "price": 24,
+      "is_new": 1
+    },
+    {
+      "id": "shop-12",
+      "name": "Chuột có dây Gaming Logitech G402 Hyperion Fury Ultra",
+      "category": 0,
+      "describe": "Chuột Gaming Logitech G402 Hyperion Fury Ultra sở hữu thiết kế mạnh mẽ, mượt mà cùng tốc độ cực nhanh chắc chắn chúng sẽ mang đến cho người dùng cảm nhận vô cùng ấn tượng.",
+      "rating": 3.6,
+      "price": 22,
+      "is_new": 1
+    },
+    {
+      "id": "shop-13",
+      "name": "Chuột có dây Gaming Dareu LM130S RGB",
+      "category": 0,
+      "describe": "Chuột chơi game có dây Dareu LM130S RGB mang một làn gió mới cho thị trường phụ kiện điện tử hiện nay. Chuột có dây Dareu với phong cách khác biệt, nhiều tính năng nổi bậc, tạo cảm giác thú vị cho người sử dụng.",
+      "rating": 4.3,
+      "price": 21,
+      "is_new": 0
+    },
+    {
+      "id": "shop-14",
+      "name": "Bàn phím cơ GP75 3modes | Hotswap | Mạch xuôi",
+      "category": 0,
+      "describe": "FL-Esports GP75 có 3 chế độ kết nối (Bluetooth, Type C, Receiver 2,4G) để có thể kết nối phù hợp vs các thiết bị tương thích cũng như thuận tiện cho công việc văn phòng hoặc chơi game",
+      "rating": 4.1,
+      "price": 45,
+      "is_new": 0
+    },
+    {
+      "id": "shop-15",
+      "name": "Sửa/thay thế màn hình laptop",
+      "category": 1,
+      "describe": "Với một số lỗi màn hình laptop không thể sửa được như nứt, giập vỡ, màn hình bị kẻ sọc, màn hình laptop bị trắng,... thì giải pháp sửa chữa, thay thế màn hình laptop được đưa ra",
+      "rating": 4.3,
+      "price": 25,
+      "is_new": 1
+    },
+    {
+      "id": "shop-16",
+      "name": "Thay pin laptop",
+      "category": 1,
+      "describe": "Pin laptop sạc lúc được lúc không, pin laptop sạc mãi không đầy… là một số dấu hiệu cho thấy laptop của bạn cần thay pin.",
+      "rating": 4.5,
+      "price": 15,
+      "is_new": 1
+    },
+    {
+      "id": "shop-17",
+      "name": "Thay bàn phím laptop",
+      "category": 1,
+      "describe": "Các lỗi thường gặp liên quan tới bàn phím laptop bao gồm laptop bị vỡ nút, chập phím, liệt phím, laptop bị khóa bàn phím, đơ bàn phím,...",
+      "rating":3.0,
+      "price": 18,
+      "is_new": 1
+    },
+    {
+      "id": "shop-18",
+      "name": "Sửa chữa macbook uy tín",
+      "category": 1,
+      "describe": "Dịch vụ sửa chữa và chăm sóc macbook lấy ngay trong vòng 01 giờ. Với chế độ bảo hành hàng một đổi một nếu có sai hỏng",
+      "rating": 4.4,
+      "price": 30,
+      "is_new": 1
+    },
+    {
+      "id": "shop-19",
+      "name": "Nâng cấp phần cứng",
+      "category": 1,
+      "describe": "Thường thì sau một thời gian dài sử dụng, ổ cứng laptop cũng sẽ có những biểu hiện bị hỏng như mắc lỗi bad sector, phát ra âm thanh khi chạy...và cần được thay cái mới",
+      "rating": 4.4,
+      "price": 28,
+      "is_new": 1
+    }
+  ]
+}
