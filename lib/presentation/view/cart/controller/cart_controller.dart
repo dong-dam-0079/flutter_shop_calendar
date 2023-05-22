@@ -7,11 +7,32 @@ class CartController extends GetxController {
   final orderList = <ShopModel>[].obs;
 
   void addToCart(ShopModel item) {
-    for(var order in orderList) {
-      if(order.shopId == item.shopId) {
+    var firstItem =
+        orderList.firstWhereOrNull((element) => element.shopId == item.shopId);
 
-      }
+    if (firstItem != null) {
+      firstItem.count++;
+    } else {
+      orderList.add(item);
     }
-    orderList.add(item);
+    update();
+  }
+
+  void removeFromCart(ShopModel item) {
+    orderList.remove(item);
+  }
+
+  void plusCountItem(ShopModel item) {
+    item.count++;
+    update();
+  }
+
+  void minusCountItem(ShopModel item) {
+    if (item.count == 1) {
+      orderList.remove(item);
+    } else {
+      item.count--;
+    }
+    update();
   }
 }

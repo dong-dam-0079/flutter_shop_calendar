@@ -53,11 +53,15 @@ class _CartViewState extends State<CartView> {
                           ],
                         ),
                       )
-                    : CommonListShop(
-                        isVertical: true,
-                        isShowRating: false,
-                        isSlidable: true,
-                        shop: _cartController.orderList,
+                    : GetBuilder<CartController>(
+                        init: _cartController,
+                        builder: (context) => CommonListShop(
+                          isVertical: true,
+                          isShowRating: false,
+                          isSlidable: true,
+                          isShowCount: true,
+                          shop: _cartController.orderList,
+                        ),
                       ),
               ),
             ),

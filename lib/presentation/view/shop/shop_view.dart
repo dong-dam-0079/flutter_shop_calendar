@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shop_laptop_project/config/di/app_module.dart';
-import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
 import 'package:shop_laptop_project/presentation/view/shop/controller/shop_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 
@@ -22,7 +21,6 @@ class ShopView extends StatefulWidget {
 
 class _ShopViewState extends State<ShopView> {
   final _shopController = serviceLocator<ShopController>();
-  final _cartController = serviceLocator<CartController>();
 
   @override
   void initState() {

@@ -5,7 +5,7 @@ import 'package:shop_laptop_project/domain/pref/app_pref.dart';
 
 import '../../../../data/model/shop_model.dart';
 
-@injectable
+@Singleton()
 class FavController extends GetxController {
   FavController(this._pref);
 
