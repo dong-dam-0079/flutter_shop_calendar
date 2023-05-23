@@ -74,14 +74,26 @@ class _CartViewState extends State<CartView> {
                   .copyWith(fontWeight: FontWeight.w700),
             ),
             Gaps.vGap24,
-            _buildRowPrice(title: S.current.title_sub_total, price: '75'),
+            Obx(
+              () => _buildRowPrice(
+                title: S.current.title_sub_total,
+                price: _cartController.subTotal.value.toString(),
+              ),
+            ),
             Gaps.vGap8,
-            _buildRowPrice(title: S.current.title_sub_total, price: '5'),
+            Obx(
+              () => _buildRowPrice(
+                title: S.current.title_ship,
+                price: _cartController.ship.value.toString(),
+              ),
+            ),
             Gaps.vGap16,
-            _buildRowPrice(
-              title: S.current.title_sub_total,
-              price: '80',
-              isTotal: true,
+            Obx(
+              () => _buildRowPrice(
+                title: S.current.title_price,
+                price: _cartController.total.value.toString(),
+                isTotal: true,
+              ),
             ),
             Gaps.vGap16,
             SizedBox(
@@ -136,7 +148,10 @@ class _CartViewState extends State<CartView> {
         Text(
           '\$$price',
           style: isTotal ?? false
-              ? CommonTextStyles.large20.copyWith(fontWeight: FontWeight.w700)
+              ? CommonTextStyles.large20.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: DimensRes.sp22,
+                )
               : CommonTextStyles.medium,
         )
       ],

@@ -44,6 +44,8 @@ class ShopModel {
 
   bool get isPopular => rating > 4.2 ? true : false;
 
+  double get totalPrice => price * count;
+
   factory ShopModel.fromJson(Map<String, dynamic> json) =>
       _$ShopModelFromJson(json);
 

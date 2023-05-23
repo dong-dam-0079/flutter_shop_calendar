@@ -26,6 +26,7 @@ class DetailView extends StatefulWidget {
 class _DetailScreenState extends State<DetailView> {
   final _cartController = serviceLocator<CartController>();
   final _favController = serviceLocator<FavController>();
+  var count = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -154,7 +155,8 @@ class _DetailScreenState extends State<DetailView> {
               width: double.infinity,
               child: CommonButton(
                 onPressed: () {
-                  _cartController.addToCart(shop);
+                  shop.count = count;
+                  _cartController.addToCart(shop, isDetail: true);
                 },
                 title: S.current.button_add_to_cart,
               ),
@@ -175,7 +177,13 @@ class _DetailScreenState extends State<DetailView> {
           ),
         ),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              if (count > 1) {
+                count--;
+              }
+            });
+          },
           icon: SvgPicture.asset(
             Assets.icMinus,
             height: DimensRes.sp24,
@@ -183,13 +191,17 @@ class _DetailScreenState extends State<DetailView> {
           ),
         ),
         Gaps.hGap8,
-        const Text(
-          '1',
+        Text(
+          count.toString(),
           style: CommonTextStyles.mediumBold,
         ),
         Gaps.hGap8,
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              count++;
+            });
+          },
           icon: SvgPicture.asset(
             Assets.icPlus,
             height: DimensRes.sp24,

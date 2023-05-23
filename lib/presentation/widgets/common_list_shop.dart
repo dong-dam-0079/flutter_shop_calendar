@@ -255,7 +255,7 @@ class CommonItemList extends StatelessWidget {
       visible: isVertical,
       child: Flexible(
         child: Text(
-          '\$${item.price * item.count}',
+          '\$${item.totalPrice}',
           style: CommonTextStyles.mediumBold,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
