@@ -103,7 +103,7 @@ class _HomeViewState extends State<HomeView> {
                       color: ColorsRes.white,
                       boxShadow: [
                         BoxShadow(
-                          color: ColorsRes.primary.withOpacity(0.4),
+                          color: ColorsRes.primary.withOpacity(0.1),
                           spreadRadius: 1,
                           blurRadius: 3,
                           offset: const Offset(0, 0.5),
@@ -159,13 +159,6 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ],
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Container(
-          color: ColorsRes.primary,
-          height: 1,
-        ),
-      ),
     );
   }
 

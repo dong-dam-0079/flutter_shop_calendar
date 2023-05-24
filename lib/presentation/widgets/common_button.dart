@@ -17,7 +17,7 @@ class CommonButton extends StatelessWidget {
       vertical: DimensRes.sp16,
       horizontal: DimensRes.sp50,
     ),
-    this.borderRadius = DimensRes.sp24,
+    this.borderRadius = DimensRes.sp16,
     this.borderSide = BorderSide.none,
     this.isDisable = false,
     this.leadingIcon,
@@ -80,7 +80,7 @@ class CommonButton extends StatelessWidget {
             child: Text(
               title,
               style: textStyle ??
-                  CommonTextStyles.mediumBold.copyWith(color: ColorsRes.white),
+                  CommonTextStyles.medium.copyWith(color: ColorsRes.white),
               textAlign: TextAlign.center,
               softWrap: false,
               maxLines: 1,

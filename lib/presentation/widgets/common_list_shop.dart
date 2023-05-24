@@ -45,6 +45,8 @@ class CommonListShop extends StatelessWidget {
           var item = shop[index];
 
           return InkWell(
+            highlightColor: ColorsRes.transparent,
+            splashColor: ColorsRes.transparent,
             onTap: () {
               HomeRouter.goDetail(context, shopModel: item);
             },
@@ -99,12 +101,13 @@ class CommonListShop extends StatelessWidget {
             flex: 2,
             child: Container(
               margin: const EdgeInsets.all(DimensRes.sp4),
+
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(DimensRes.sp16),
                 color: ColorsRes.white,
                 boxShadow: [
                   BoxShadow(
-                    color: ColorsRes.primary.withOpacity(0.4),
+                    color: ColorsRes.primary.withOpacity(0.1),
                     spreadRadius: 1,
                     blurRadius: 3,
                     offset: const Offset(0, 0.5),
@@ -186,7 +189,6 @@ class CommonItemList extends StatelessWidget {
         _buildDescribe(),
         Gaps.vGap8,
         _buildPrice(),
-        _buildButtonAddCart(),
         _buildCount(),
       ],
     );
@@ -239,28 +241,30 @@ class CommonItemList extends StatelessWidget {
   Visibility _buildButtonAddCart() {
     return Visibility(
       visible: isShopButton ?? false,
-      child: SizedBox(
-        width: double.infinity,
-        child: CommonButton(
-          onPressed: onClickAdd,
-          title: S.current.button_add_to_cart,
-          padding: const EdgeInsets.symmetric(vertical: DimensRes.sp8),
-        ),
+      child: CommonButton(
+        onPressed: onClickAdd,
+        title: S.current.button_buy,
+        padding: const EdgeInsets.all(DimensRes.sp8),
       ),
     );
   }
 
-  Visibility _buildPrice() {
-    return Visibility(
-      visible: isVertical,
-      child: Flexible(
-        child: Text(
-          '\$${item.totalPrice}',
-          style: CommonTextStyles.mediumBold,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+  Widget _buildPrice() {
+    return Row(
+      children: [
+        Visibility(
+          visible: isVertical,
+          child: Expanded(
+            child: Text(
+              '\$${item.totalPrice}',
+              style: CommonTextStyles.mediumBold,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
-      ),
+        _buildButtonAddCart(),
+      ],
     );
   }
 
@@ -270,6 +274,7 @@ class CommonItemList extends StatelessWidget {
       child: Row(
         children: [
           IconButton(
+            splashRadius: DimensRes.sp20,
             onPressed: () {
               _cartController.minusCountItem(item);
             },
@@ -286,6 +291,7 @@ class CommonItemList extends StatelessWidget {
           ),
           Gaps.hGap8,
           IconButton(
+            splashRadius: DimensRes.sp20,
             onPressed: () {
               _cartController.plusCountItem(item);
             },

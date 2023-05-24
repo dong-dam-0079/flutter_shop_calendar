@@ -64,13 +64,6 @@ class _ShopViewState extends State<ShopView> {
           ),
         ),
       ),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Container(
-          color: ColorsRes.primary,
-          height: 1,
-        ),
-      ),
     );
   }
 
@@ -88,7 +81,7 @@ class _ShopViewState extends State<ShopView> {
       ),
       child: TabBar(
         indicator: BoxDecoration(
-          borderRadius: BorderRadius.circular(DimensRes.sp12),
+          borderRadius: BorderRadius.circular(DimensRes.sp10),
           color: Colors.white,
         ),
         tabs: [

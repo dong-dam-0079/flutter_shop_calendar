@@ -65,8 +65,6 @@ class _CartViewState extends State<CartView> {
                       ),
               ),
             ),
-            Gaps.vGap2,
-            Gaps.vLine,
             Gaps.vGap12,
             Text(
               S.current.title_order_info,
@@ -120,13 +118,6 @@ class _CartViewState extends State<CartView> {
             S.current.cart,
             style: CommonTextStyles.title,
           ),
-        ),
-      ),
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(1),
-        child: Container(
-          color: ColorsRes.primary,
-          height: 1,
         ),
       ),
     );
