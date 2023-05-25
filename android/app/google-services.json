@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "5857735251",
+    "project_id": "shop-laptop-project",
+    "storage_bucket": "shop-laptop-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:5857735251:android:b148af5ffcd6904d8c0ca6",
+        "android_client_info": {
+          "package_name": "com.example.laptop.shop_laptop_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "5857735251-2kni2q6i69fv9s3gp4kiqd61qk4nmglc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxY6tgUY6LGebUCCKz7JkKhC6F7iKeiHQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "5857735251-2kni2q6i69fv9s3gp4kiqd61qk4nmglc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
