@@ -45,10 +45,7 @@ class CommonTextField extends StatefulWidget {
     this.textAlignVertical,
     this.autofillHints,
     this.suffix,
-    this.enableCopy,
-    this.enablePaste,
-    this.enableSelectAll,
-    this.borderRadius,
+    this.enableCopyClipboard,
   }) : super(key: key);
 
   final FocusNode? focusNode;
@@ -86,10 +83,7 @@ class CommonTextField extends StatefulWidget {
   final TextAlignVertical? textAlignVertical;
   final TextInputAction? textInputAction;
   final FormFieldValidator<String>? validator;
-  final bool? enableCopy;
-  final bool? enablePaste;
-  final bool? enableSelectAll;
-  final BorderRadius? borderRadius;
+  final bool? enableCopyClipboard;
 
   @override
   State<CommonTextField> createState() => _CommonTextFieldState();
@@ -126,11 +120,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      toolbarOptions: ToolbarOptions(
-        copy: widget.enableCopy ?? false,
-        paste: widget.enablePaste ?? false,
-        selectAll: widget.enableSelectAll ?? false,
-      ),
+      enableInteractiveSelection: widget.enableCopyClipboard,
       focusNode: widget.focusNode,
       expands: widget.expands,
       autofillHints: widget.autofillHints,
@@ -138,8 +128,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
       textAlignVertical: widget.textAlignVertical ?? TextAlignVertical.center,
       minLines: widget.minLines,
       maxLines: widget.maxLines,
-      style: widget.inputTextStyle ??
-          CommonTextStyles.medium.copyWith(color: Colors.black),
+      style: widget.inputTextStyle ?? CommonTextStyles.medium,
       maxLength: widget.maxLength,
       autofocus: widget.autoFocus,
       enabled: widget.enable ?? true,
@@ -151,8 +140,10 @@ class _CommonTextFieldState extends State<CommonTextField> {
       decoration: InputDecoration(
         filled: true,
         fillColor: widget.backgroundColor,
-        contentPadding:
-            widget.contentPadding ?? const EdgeInsets.all(DimensRes.sp12),
+        contentPadding: widget.contentPadding ??
+            const EdgeInsets.all(
+              DimensRes.sp12,
+            ),
         hintStyle: widget.hintStyle ??
             CommonTextStyles.medium.copyWith(
               color: ColorsRes.textDisable,
@@ -165,7 +156,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
               color: Colors.redAccent,
               height: 1.2,
             ),
-        errorMaxLines: 3,
+        errorMaxLines: 1,
         labelText: widget.labelText,
         labelStyle: widget.labelStyle ??
             CommonTextStyles.medium.copyWith(
@@ -181,7 +172,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
             color: Colors.redAccent,
             width: widget.borderFocusWidth,
           ),
-          borderRadius: widget.borderRadius ?? _borderRadius,
+          borderRadius: _borderRadius,
         ),
         focusedBorder: widget.isShowBorder
             ? OutlineInputBorder(
@@ -189,16 +180,16 @@ class _CommonTextFieldState extends State<CommonTextField> {
                   color: widget.borderFocusColor ?? ColorsRes.primary,
                   width: widget.borderFocusWidth,
                 ),
-                borderRadius: widget.borderRadius ?? _borderRadius,
+                borderRadius: _borderRadius,
               )
             : InputBorder.none,
         enabledBorder: widget.isShowBorder
             ? OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: widget.borderColor ?? ColorsRes.borderGray,
+                  color: widget.borderColor ?? ColorsRes.primary,
                   width: widget.borderWidth,
                 ),
-                borderRadius: widget.borderRadius ?? _borderRadius,
+                borderRadius: _borderRadius,
               )
             : InputBorder.none,
         errorBorder: OutlineInputBorder(
@@ -206,7 +197,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
             color: Colors.redAccent,
             width: widget.borderWidth,
           ),
-          borderRadius: widget.borderRadius ?? _borderRadius,
+          borderRadius: _borderRadius,
         ),
         disabledBorder: widget.isShowBorder
             ? OutlineInputBorder(
@@ -214,21 +205,16 @@ class _CommonTextFieldState extends State<CommonTextField> {
                   color: widget.borderColor ?? Colors.grey,
                   width: widget.borderWidth,
                 ),
-                borderRadius: widget.borderRadius ?? _borderRadius,
+                borderRadius: _borderRadius,
               )
             : InputBorder.none,
-        suffixIcon: widget.obscureText && _isShowPasswordIcon
+        suffix: widget.obscureText && _isShowPasswordIcon
             ? InkWell(
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: SvgPicture.asset(
-                    _passwordVisible
-                        ? Assets.icVisibleOff
-                        : Assets.icVisibleOn,
-                    width: DimensRes.sp15,
-                    height: DimensRes.sp15,
-                    color: ColorsRes.primary.withOpacity(0.5),
-                  ),
+                child: SvgPicture.asset(
+                  _passwordVisible ? Assets.icVisibleOff : Assets.icVisibleOn,
+                  width: DimensRes.sp15,
+                  height: DimensRes.sp15,
+                  color: ColorsRes.primary.withOpacity(0.5),
                 ),
                 onTap: () {
                   setState(() {

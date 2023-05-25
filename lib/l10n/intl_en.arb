@@ -16,5 +16,9 @@
   "title_total": "Total",
   "button_buy": "Buy",
   "title_price": "Price",
-  "empty": "Empty Order"
+  "empty": "Empty Order",
+  "complete_your_order": "Complete your order by filling all infomation",
+  "address": "Address",
+  "phone_number": "Phone Number",
+  "time_order": "Time Oder"
 }

@@ -1,6 +1,8 @@
 import 'package:fluro/fluro.dart';
+import 'package:shop_laptop_project/data/model/order_model.dart';
 import 'package:shop_laptop_project/data/model/shop_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/cart_view.dart';
+import 'package:shop_laptop_project/presentation/view/cart/pay_view.dart';
 import 'package:shop_laptop_project/presentation/view/detail/detail_view.dart';
 import 'package:shop_laptop_project/presentation/view/favorite/favorite_view.dart';
 import 'package:shop_laptop_project/presentation/view/home/home_view.dart';
@@ -73,12 +75,32 @@ class HomeRouter extends IRouterProvider {
         return DetailView(item: data);
       }),
     );
+
+    router.define(
+      NavigatorPaths.pay,
+      handler: Handler(handlerFunc: (context, __) {
+        final data = context?.settings?.arguments as OrderModel;
+
+        return PayView(order: data);
+      }),
+    );
   }
 
   static void goMainView(context) {
     NavigatorUtils.pushAndRemoveUntil(
       context,
       NavigatorPaths.main,
+    );
+  }
+
+  static void goPay(
+    context, {
+    required OrderModel order,
+  }) {
+    NavigatorUtils.push(
+      context,
+      NavigatorPaths.pay,
+      sendData: order,
     );
   }
 

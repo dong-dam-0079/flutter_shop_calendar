@@ -8,4 +8,5 @@ class NavigatorPaths {
   static const favorite = '/favorite';
   static const history = '/history';
   static const detail = '/detail';
+  static const pay = '/pay';
 }

@@ -19,9 +19,8 @@ class CommonTextBox extends StatefulWidget {
     this.obscureText = false,
     this.autoFocus = false,
     this.contentPadding,
-    this.enableCopy,
-    this.enablePaste,
-    this.enableSelectAll,
+    this.keyboardType,
+    this.enableCopyClipboard,
   }) : super(key: key);
 
   final TextEditingController controller;
@@ -34,9 +33,8 @@ class CommonTextBox extends StatefulWidget {
   final TextStyle? labelStyle;
   final TextStyle? inputTextStyle;
   final EdgeInsetsGeometry? contentPadding;
-  final bool? enableCopy;
-  final bool? enablePaste;
-  final bool? enableSelectAll;
+  final TextInputType? keyboardType;
+  final bool? enableCopyClipboard;
 
   @override
   State<CommonTextBox> createState() => _CommonTextBoxState();
@@ -110,11 +108,9 @@ class _CommonTextBoxState extends State<CommonTextBox> {
         backgroundColor: widget.backgroundColor ?? ColorsRes.transparent,
         labelText: widget.labelText,
         labelStyle: widget.labelStyle,
-        inputTextStyle: widget.inputTextStyle ??
-            CommonTextStyles.medium.copyWith(color: Colors.black),
-        enableCopy: widget.enableCopy,
-        enablePaste: widget.enablePaste,
-        enableSelectAll: widget.enableSelectAll,
+        inputTextStyle: widget.inputTextStyle ?? CommonTextStyles.medium,
+        keyboardType: widget.keyboardType ?? TextInputType.text,
+        enableCopyClipboard: widget.enableCopyClipboard,
       ),
     );
   }

@@ -22,18 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "address": MessageLookupByLibrary.simpleMessage("Address"),
         "button_add_to_cart":
             MessageLookupByLibrary.simpleMessage("Add to cart"),
         "button_buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "button_go_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "button_go_history": MessageLookupByLibrary.simpleMessage("History"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+        "complete_your_order": MessageLookupByLibrary.simpleMessage(
+            "Complete your order by filling all infomation"),
         "empty": MessageLookupByLibrary.simpleMessage("Empty Order"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "shop": MessageLookupByLibrary.simpleMessage("Shop"),
         "tab_device": MessageLookupByLibrary.simpleMessage("Device"),
         "tab_service": MessageLookupByLibrary.simpleMessage("Service"),
+        "time_order": MessageLookupByLibrary.simpleMessage("Time Oder"),
         "title_new": MessageLookupByLibrary.simpleMessage("New"),
         "title_order_info": MessageLookupByLibrary.simpleMessage("Order Info"),
         "title_popular": MessageLookupByLibrary.simpleMessage("Popular"),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:shop_laptop_project/config/di/app_module.dart';
+import 'package:shop_laptop_project/config/router/routers/home_router.dart';
+import 'package:shop_laptop_project/data/model/order_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_app_bar.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
@@ -97,7 +99,9 @@ class _CartViewState extends State<CartView> {
             SizedBox(
               width: double.infinity,
               child: CommonButton(
-                onPressed: () {},
+                onPressed: () {
+                  HomeRouter.goPay(context, order: OrderModel([], '12'));
+                },
                 title: S.current.button_buy,
               ),
             )

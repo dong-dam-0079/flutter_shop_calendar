@@ -229,6 +229,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Complete your order by filling all infomation`
+  String get complete_your_order {
+    return Intl.message(
+      'Complete your order by filling all infomation',
+      name: 'complete_your_order',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Address`
+  String get address {
+    return Intl.message(
+      'Address',
+      name: 'address',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phone_number {
+    return Intl.message(
+      'Phone Number',
+      name: 'phone_number',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Time Oder`
+  String get time_order {
+    return Intl.message(
+      'Time Oder',
+      name: 'time_order',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
