@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -9,6 +10,7 @@ import 'package:shop_laptop_project/presentation/widgets/common_list_shop.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
 
 import '../../../common/constants/assets.dart';
+import '../../../common/constants/common_constants.dart';
 import '../../../common/res/colors.dart';
 import '../../../common/res/dimens.dart';
 import '../../../generated/l10n.dart';
@@ -97,6 +99,7 @@ class _HomeViewState extends State<HomeView> {
                 Expanded(
                   flex: 2,
                   child: Container(
+                    height: 120,
                     margin: const EdgeInsets.all(DimensRes.sp4),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(DimensRes.sp16),
@@ -112,9 +115,15 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(DimensRes.sp16),
-                      child: Image.asset(
-                        Assets.imgKeyboard,
+                      child: CachedNetworkImage(
                         fit: BoxFit.fill,
+                        imageUrl: news.linkImage ?? CommonConstants.defaultLinkImg,
+                        errorWidget: (context, url, error) {
+                          return Image.asset(
+                            Assets.imgSetting,
+                            fit: BoxFit.fill,
+                          );
+                        },
                       ),
                     ),
                   ),
@@ -142,7 +151,7 @@ class _HomeViewState extends State<HomeView> {
           alignment: Alignment.centerLeft,
           child: Text(
             S.current.home,
-            style: CommonTextStyles.title,
+            style: CommonTextStyles.title.copyWith(color: ColorsRes.white),
           ),
         ),
       ),
@@ -169,7 +178,7 @@ class _HomeViewState extends State<HomeView> {
         Assets.icMenu,
         height: DimensRes.sp20,
         width: DimensRes.sp20,
-        color: ColorsRes.primary,
+        color: ColorsRes.white,
       ),
       padding: const EdgeInsets.only(right: DimensRes.sp8),
       position: PopupMenuPosition.under,
@@ -184,22 +193,19 @@ class _HomeViewState extends State<HomeView> {
           S.current.button_go_favorite,
           Assets.icFavorite,
         ),
-        const PopupMenuItem(
-          padding: EdgeInsets.zero,
-          height: DimensRes.sp2,
-          child: Gaps.vLine,
-        ),
-        _buildItemMenu(
-          value: 2,
-          S.current.button_go_history,
-          Assets.icHistory,
-        ),
+        // const PopupMenuItem(
+        //   padding: EdgeInsets.zero,
+        //   height: DimensRes.sp2,
+        //   child: Gaps.vLine,
+        // ),
+        // _buildItemMenu(
+        //   value: 2,
+        //   S.current.button_go_history,
+        //   Assets.icHistory,
+        // ),
       ],
       onSelected: (value) {
         if (value == 1) {
-          HomeRouter.goFavorite(context);
-        }
-        if (value == 2) {
           HomeRouter.goFavorite(context);
         }
       },

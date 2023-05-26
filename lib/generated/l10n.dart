@@ -210,6 +210,16 @@ class S {
     );
   }
 
+  /// `Add`
+  String get button_add {
+    return Intl.message(
+      'Add',
+      name: 'button_add',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Price`
   String get title_price {
     return Intl.message(
@@ -295,6 +305,26 @@ class S {
     return Intl.message(
       'Internet Banking',
       name: 'atm_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Empty favorite item`
+  String get empty_fav {
+    return Intl.message(
+      'Empty favorite item',
+      name: 'empty_fav',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sorry for the inconvenience, we will update the internet banking method later`
+  String get sorry_atm {
+    return Intl.message(
+      'Sorry for the inconvenience, we will update the internet banking method later',
+      name: 'sorry_atm',
       desc: '',
       args: [],
     );

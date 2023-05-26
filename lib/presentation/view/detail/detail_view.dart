@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:shop_laptop_project/common/constants/assets.dart';
+import 'package:shop_laptop_project/common/constants/common_constants.dart';
 import 'package:shop_laptop_project/common/res/dimens.dart';
 import 'package:shop_laptop_project/data/model/shop_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
@@ -27,6 +29,7 @@ class _DetailScreenState extends State<DetailView> {
   final _cartController = serviceLocator<CartController>();
   final _favController = serviceLocator<FavController>();
   var count = 1;
+  bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +46,15 @@ class _DetailScreenState extends State<DetailView> {
             child: SizedBox(
               height: hImage,
               width: double.infinity,
-              child: Image.asset(
-                Assets.imgChair,
+              child: CachedNetworkImage(
                 fit: BoxFit.fill,
+                imageUrl: shop.linkImage ?? CommonConstants.defaultLinkImg,
+                errorWidget: (context, url, error) {
+                  return Image.asset(
+                    Assets.imgSetting,
+                    fit: BoxFit.fill,
+                  );
+                },
               ),
             ),
           ),
@@ -113,11 +122,15 @@ class _DetailScreenState extends State<DetailView> {
                 IconButton(
                   onPressed: () {
                     _favController.setItemFavorite(shop);
+                    setState(() {
+                      isFav = !isFav;
+                    });
                   },
                   icon: SvgPicture.asset(
                     Assets.icFavorite,
                     height: DimensRes.sp24,
                     width: DimensRes.sp24,
+                    color: isFav ? ColorsRes.secondary : ColorsRes.primary,
                   ),
                 ),
               ],
@@ -157,6 +170,7 @@ class _DetailScreenState extends State<DetailView> {
                 onPressed: () {
                   shop.count = count;
                   _cartController.addToCart(shop, isDetail: true);
+                  _showToastAddedCart();
                 },
                 title: S.current.button_add_to_cart,
               ),
@@ -209,6 +223,20 @@ class _DetailScreenState extends State<DetailView> {
           ),
         ),
       ],
+    );
+  }
+
+  void _showToastAddedCart() {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        duration: const Duration(milliseconds: 500),
+        content: Text(
+          'Added to Cart',
+          style: CommonTextStyles.mediumBold.copyWith(color: ColorsRes.white),
+        ),
+        backgroundColor: ColorsRes.secondary,
+      ),
     );
   }
 }

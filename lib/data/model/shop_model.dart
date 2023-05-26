@@ -11,6 +11,7 @@ class ShopModel {
     required this.describe,
     required this.rating,
     required this.price,
+    this.linkImage,
     this.isNew,
     this.count = 1,
   });
@@ -27,6 +28,9 @@ class ShopModel {
   @JsonKey(name: 'describe')
   final String describe;
 
+  @JsonKey(name: 'image')
+  final String? linkImage;
+
   @JsonKey(name: 'rating')
   final double rating;
 
@@ -38,7 +42,7 @@ class ShopModel {
 
   int count;
 
-  bool get isCateDevices => category == 1 ? true : false;
+  bool get isCateServices => category == 1 ? true : false;
 
   bool get isNewInfo => isNew == 0 ? true : false;
 

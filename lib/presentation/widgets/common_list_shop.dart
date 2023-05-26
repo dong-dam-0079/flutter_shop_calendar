@@ -1,7 +1,9 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:shop_laptop_project/common/constants/common_constants.dart';
 import 'package:shop_laptop_project/config/di/app_module.dart';
 import 'package:shop_laptop_project/config/router/routers/home_router.dart';
 import 'package:shop_laptop_project/data/model/shop_model.dart';
@@ -80,7 +82,7 @@ class CommonListShop extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: _itemList(item),
+                  child: _itemList(item, context),
                 ),
               ),
             ),
@@ -90,7 +92,7 @@ class CommonListShop extends StatelessWidget {
     );
   }
 
-  Container _itemList(ShopModel item) {
+  Container _itemList(ShopModel item, BuildContext context) {
     return Container(
       decoration:
           BoxDecoration(borderRadius: BorderRadius.circular(DimensRes.sp16)),
@@ -100,8 +102,11 @@ class CommonListShop extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
+              height: 140,
+              width: 140,
               margin: const EdgeInsets.all(DimensRes.sp4),
-
+              padding: EdgeInsets.all(
+                  item.isCateServices ? DimensRes.sp32 : DimensRes.sp0),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(DimensRes.sp16),
                 color: ColorsRes.white,
@@ -116,14 +121,21 @@ class CommonListShop extends StatelessWidget {
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(DimensRes.sp16),
-                child: item.isCateDevices
+                child: item.isCateServices
                     ? Image.asset(
                         Assets.imgSetting,
                         fit: BoxFit.fill,
                       )
-                    : Image.asset(
-                        Assets.imgKeyboard,
+                    : CachedNetworkImage(
                         fit: BoxFit.fill,
+                        imageUrl:
+                            item.linkImage ?? CommonConstants.defaultLinkImg,
+                        errorWidget: (context, url, error) {
+                          return Image.asset(
+                            Assets.imgSetting,
+                            fit: BoxFit.fill,
+                          );
+                        },
                       ),
               ),
             ),
@@ -139,11 +151,26 @@ class CommonListShop extends StatelessWidget {
               item: item,
               onClickAdd: () {
                 _cartController.addToCart(item);
+                _showToast(context);
               },
             ),
           ),
           Gaps.hGap4,
         ],
+      ),
+    );
+  }
+
+  void _showToast(BuildContext context) {
+    final scaffold = ScaffoldMessenger.of(context);
+    scaffold.showSnackBar(
+      SnackBar(
+        duration: const Duration(milliseconds: 500),
+        content: Text(
+          'Added to Cart',
+          style: CommonTextStyles.mediumBold.copyWith(color: ColorsRes.white),
+        ),
+        backgroundColor: ColorsRes.secondary,
       ),
     );
   }
@@ -243,7 +270,7 @@ class CommonItemList extends StatelessWidget {
       visible: isShopButton ?? false,
       child: CommonButton(
         onPressed: onClickAdd,
-        title: S.current.button_buy,
+        title: S.current.button_add,
         padding: const EdgeInsets.all(DimensRes.sp8),
       ),
     );

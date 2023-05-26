@@ -15,6 +15,7 @@
   "title_ship": "Shipping Cost",
   "title_total": "Total",
   "button_buy": "Buy",
+  "button_add": "Add",
   "title_price": "Price",
   "empty": "Empty Order",
   "complete_your_order": "Complete your order by filling all infomation",
@@ -23,5 +24,7 @@
   "time_order": "Time Oder",
   "pay_method": "Payment methods",
   "cash_method": "Cash",
-  "atm_method": "Internet Banking"
+  "atm_method": "Internet Banking",
+  "empty_fav": "Empty favorite item",
+  "sorry_atm": "Sorry for the inconvenience, we will update the internet banking method later"
 }

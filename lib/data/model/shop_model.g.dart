@@ -13,6 +13,7 @@ ShopModel _$ShopModelFromJson(Map<String, dynamic> json) => ShopModel(
       describe: json['describe'] as String,
       rating: (json['rating'] as num).toDouble(),
       price: (json['price'] as num).toDouble(),
+      linkImage: json['image'] as String?,
       isNew: json['is_new'] as int?,
       count: json['count'] as int? ?? 1,
     );
@@ -22,6 +23,7 @@ Map<String, dynamic> _$ShopModelToJson(ShopModel instance) => <String, dynamic>{
       'name': instance.itemName,
       'category': instance.category,
       'describe': instance.describe,
+      'image': instance.linkImage,
       'rating': instance.rating,
       'price': instance.price,
       'is_new': instance.isNew,

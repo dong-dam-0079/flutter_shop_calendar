@@ -60,7 +60,7 @@ class _ShopViewState extends State<ShopView> {
           alignment: Alignment.centerLeft,
           child: Text(
             S.current.shop,
-            style: CommonTextStyles.title,
+            style: CommonTextStyles.title.copyWith(color: ColorsRes.white),
           ),
         ),
       ),
@@ -85,8 +85,8 @@ class _ShopViewState extends State<ShopView> {
           color: Colors.white,
         ),
         tabs: [
-          _buildTab(S.current.tab_service),
           _buildTab(S.current.tab_device),
+          _buildTab(S.current.tab_service),
         ],
         indicatorColor: ColorsRes.transparent,
         labelStyle: CommonTextStyles.medium,

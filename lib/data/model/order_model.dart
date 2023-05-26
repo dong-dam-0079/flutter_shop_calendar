@@ -1,15 +1,25 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:shop_laptop_project/data/model/order_info.dart';
 
 part 'order_model.g.dart';
 
 @JsonSerializable()
 class OrderModel {
-  OrderModel(this.listOrder, this.totalPrice);
+  OrderModel(
+    this.listOrder,
+    this.totalPrice,
+    this.phoneNumber,
+    this.location,
+    this.timeOrder,
+    this.paymentMethod,
+  );
 
-  List<OrderInfo> listOrder;
+  List<Map<String, dynamic>> listOrder;
 
   final String totalPrice;
+  final String phoneNumber;
+  final String location;
+  final String timeOrder;
+  final String paymentMethod;
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
       _$OrderModelFromJson(json);

@@ -3,7 +3,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:shop_laptop_project/config/di/app_module.dart';
 import 'package:shop_laptop_project/config/router/routers/home_router.dart';
-import 'package:shop_laptop_project/data/model/order_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/controller/cart_controller.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_app_bar.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
@@ -100,7 +99,9 @@ class _CartViewState extends State<CartView> {
               width: double.infinity,
               child: CommonButton(
                 onPressed: () {
-                  HomeRouter.goPay(context, order: OrderModel([], '12'));
+                  if (_cartController.total.value != 0.0) {
+                    HomeRouter.goPay(context);
+                  }
                 },
                 title: S.current.button_buy,
               ),
@@ -120,7 +121,7 @@ class _CartViewState extends State<CartView> {
           alignment: Alignment.centerLeft,
           child: Text(
             S.current.cart,
-            style: CommonTextStyles.title,
+            style: CommonTextStyles.title.copyWith(color: ColorsRes.white),
           ),
         ),
       ),

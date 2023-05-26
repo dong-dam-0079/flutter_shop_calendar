@@ -1,5 +1,4 @@
 import 'package:fluro/fluro.dart';
-import 'package:shop_laptop_project/data/model/order_model.dart';
 import 'package:shop_laptop_project/data/model/shop_model.dart';
 import 'package:shop_laptop_project/presentation/view/cart/cart_view.dart';
 import 'package:shop_laptop_project/presentation/view/cart/pay_view.dart';
@@ -79,9 +78,7 @@ class HomeRouter extends IRouterProvider {
     router.define(
       NavigatorPaths.pay,
       handler: Handler(handlerFunc: (context, __) {
-        final data = context?.settings?.arguments as OrderModel;
-
-        return PayView(order: data);
+        return const PaymentView();
       }),
     );
   }
@@ -93,14 +90,10 @@ class HomeRouter extends IRouterProvider {
     );
   }
 
-  static void goPay(
-    context, {
-    required OrderModel order,
-  }) {
+  static void goPay(context) {
     NavigatorUtils.push(
       context,
       NavigatorPaths.pay,
-      sendData: order,
     );
   }
 

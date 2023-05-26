@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "address": MessageLookupByLibrary.simpleMessage("Address"),
         "atm_method": MessageLookupByLibrary.simpleMessage("Internet Banking"),
+        "button_add": MessageLookupByLibrary.simpleMessage("Add"),
         "button_add_to_cart":
             MessageLookupByLibrary.simpleMessage("Add to cart"),
         "button_buy": MessageLookupByLibrary.simpleMessage("Buy"),
@@ -34,11 +35,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "complete_your_order": MessageLookupByLibrary.simpleMessage(
             "Complete your order by filling all infomation"),
         "empty": MessageLookupByLibrary.simpleMessage("Empty Order"),
+        "empty_fav":
+            MessageLookupByLibrary.simpleMessage("Empty favorite item"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "pay_method": MessageLookupByLibrary.simpleMessage("Payment methods"),
         "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "shop": MessageLookupByLibrary.simpleMessage("Shop"),
+        "sorry_atm": MessageLookupByLibrary.simpleMessage(
+            "Sorry for the inconvenience, we will update the internet banking method later"),
         "tab_device": MessageLookupByLibrary.simpleMessage("Device"),
         "tab_service": MessageLookupByLibrary.simpleMessage("Service"),
         "time_order": MessageLookupByLibrary.simpleMessage("Time Oder"),

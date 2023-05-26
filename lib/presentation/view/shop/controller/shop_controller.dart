@@ -23,10 +23,10 @@ class ShopController extends GetxController {
       final list = res.right.response;
 
       for (var item in list) {
-        if (item.isCateDevices) {
-          shopDevices.add(item);
-        } else {
+        if (item.isCateServices) {
           shopServices.add(item);
+        } else {
+          shopDevices.add(item);
         }
       }
     }
