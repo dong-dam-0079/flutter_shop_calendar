@@ -80,6 +80,8 @@ dependencies:
 
   cloud_firestore: ^4.7.1
 
+  flutter_native_splash: ^2.2.19
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -109,3 +111,10 @@ flutter:
 
 flutter_intl:
   enabled: true
+
+flutter_native_splash:
+  color: "#ffffff"
+
+  image: assets/images/img_background.png
+
+  fullscreen: true
