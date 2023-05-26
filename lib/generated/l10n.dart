@@ -269,6 +269,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Payment methods`
+  String get pay_method {
+    return Intl.message(
+      'Payment methods',
+      name: 'pay_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cash`
+  String get cash_method {
+    return Intl.message(
+      'Cash',
+      name: 'cash_method',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Internet Banking`
+  String get atm_method {
+    return Intl.message(
+      'Internet Banking',
+      name: 'atm_method',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

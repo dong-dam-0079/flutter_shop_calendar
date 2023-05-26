@@ -20,5 +20,8 @@
   "complete_your_order": "Complete your order by filling all infomation",
   "address": "Address",
   "phone_number": "Phone Number",
-  "time_order": "Time Oder"
+  "time_order": "Time Oder",
+  "pay_method": "Payment methods",
+  "cash_method": "Cash",
+  "atm_method": "Internet Banking"
 }
