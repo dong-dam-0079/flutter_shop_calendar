@@ -100,6 +100,7 @@ dev_dependencies:
   # https://pub.dev/packages/injectable_generator
   injectable_generator:
 
+  flutter_launcher_icons: ^0.13.1
 
 flutter:
   uses-material-design: true
@@ -118,3 +119,10 @@ flutter_native_splash:
   image: assets/images/img_background.png
 
   fullscreen: true
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/img_background.png"
+  remove_alpha_ios: true
+  min_sdk_android: 21
