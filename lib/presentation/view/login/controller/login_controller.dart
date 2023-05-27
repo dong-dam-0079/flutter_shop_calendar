@@ -24,6 +24,10 @@ class LoginController extends GetxController {
     isLoading.value = false;
   }
 
+  void setFirstTimeLaunch() async {
+    await _pref.setFirstTime(true);
+  }
+
   void sendOtp(String mobile) async {
     FirebaseAuth auth = FirebaseAuth.instance;
     await _pref.setPhoneNumber(mobile);

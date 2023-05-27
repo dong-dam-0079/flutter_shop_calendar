@@ -19,7 +19,7 @@ class CartController extends GetxController {
   final total = 0.0.obs;
   final dayOrder = DateTime.now().toStringWithDate().obs;
   final timeOrder = DateTime.now().toStringWithTime().obs;
-  final phone = '097327368'.obs;
+  final phone = ''.obs;
 
   Future<void> getPhoneNumber() async {
     phone.value = await _pref.phoneNumber;

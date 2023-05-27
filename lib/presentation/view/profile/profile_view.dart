@@ -73,23 +73,27 @@ class _ProfileViewState extends State<ProfileView> {
                   Obx(
                     () => Text(
                       _proController.phone.value,
-                      style: CommonTextStyles.large18
+                      style: CommonTextStyles.mediumBold
                           .copyWith(color: ColorsRes.white),
                     ),
                   ),
                   Gaps.vGap32,
                   Expanded(
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: CommonButton(
-                        onPressed: () async {
-                          await FirebaseAuth.instance.signOut().whenComplete(
-                              () => HomeRouter.forceLogout(context));
-                        },
-                        title: 'Logout',
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: CommonButton(
+                          onPressed: () async {
+                            await FirebaseAuth.instance.signOut().whenComplete(
+                                () => HomeRouter.forceLogout(context));
+                          },
+                          title: 'Logout',
+                        ),
                       ),
                     ),
-                  )
+                  ),
+                  Gaps.vGap32,
                 ],
               ),
             ),

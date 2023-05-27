@@ -12,8 +12,6 @@ import 'package:shop_laptop_project/presentation/widgets/common_button.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_gaps.dart';
 import 'package:shop_laptop_project/presentation/widgets/common_text_styles.dart';
 
-import '../../../config/log/log.dart';
-
 class OtpView extends StatefulWidget {
   const OtpView({Key? key}) : super(key: key);
 
@@ -32,14 +30,13 @@ class _OtpViewState extends State<OtpView> with BaseMixin {
     _loginController.nextToOtp.value = false;
 
     worker = ever(_loginController.isError, (bool isError) {
-      Log.e('Click $isError');
       if (isError) {
         showErrorDialog(
             message:
                 'The verification code from SMS/TOTP is invalid\nPlease check and enter the correct verification code again.');
-
       } else {
         if (_loginController.nextToHome.value) {
+          _loginController.setFirstTimeLaunch();
           HomeRouter.goMainView(context);
         }
       }
