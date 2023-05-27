@@ -9,25 +9,27 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dio/dio.dart' as _i4;
+import 'package:dio/dio.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:shared_preferences/shared_preferences.dart' as _i9;
+import 'package:shared_preferences/shared_preferences.dart' as _i7;
 
-import '../../data/local/app_pref_impl.dart' as _i13;
-import '../../data/repository/event_repository_impl.dart' as _i6;
-import '../../data/service/api_service.dart' as _i11;
-import '../../domain/pref/app_pref.dart' as _i12;
-import '../../domain/repository/event_repository.dart' as _i5;
-import '../../domain/usecase/shop_usecase.dart' as _i10;
-import '../../presentation/view/cart/controller/cart_controller.dart' as _i3;
+import '../../data/local/app_pref_impl.dart' as _i11;
+import '../../data/repository/event_repository_impl.dart' as _i5;
+import '../../data/service/api_service.dart' as _i9;
+import '../../domain/pref/app_pref.dart' as _i10;
+import '../../domain/repository/event_repository.dart' as _i4;
+import '../../domain/usecase/shop_usecase.dart' as _i8;
+import '../../presentation/view/cart/controller/cart_controller.dart' as _i12;
 import '../../presentation/view/favorite/controller/fav_controller.dart'
-    as _i14;
-import '../../presentation/view/home/controller/home_controller.dart' as _i15;
-import '../../presentation/view/login/controller/login_controller.dart' as _i8;
-import '../../presentation/view/shop/controller/shop_controller.dart' as _i16;
-import '../../presentation/widgets/common_gaps.dart' as _i7;
-import 'app_module.dart' as _i17;
+    as _i13;
+import '../../presentation/view/home/controller/home_controller.dart' as _i14;
+import '../../presentation/view/login/controller/login_controller.dart' as _i15;
+import '../../presentation/view/profile/controller/profile_controller.dart'
+    as _i16;
+import '../../presentation/view/shop/controller/shop_controller.dart' as _i17;
+import '../../presentation/widgets/common_gaps.dart' as _i6;
+import 'app_module.dart' as _i18;
 
 // ignore_for_file: unnecessary_lambdas
 // ignore_for_file: lines_longer_than_80_chars
@@ -43,25 +45,26 @@ Future<_i1.GetIt> $initGetIt(
     environmentFilter,
   );
   final appModule = _$AppModule();
-  gh.singleton<_i3.CartController>(_i3.CartController());
-  gh.singleton<_i4.Dio>(appModule.dio);
-  gh.singleton<_i5.EventRepository>(_i6.EventRepositoryImpl());
-  gh.singleton<_i7.Gaps>(_i7.Gaps());
-  gh.factory<_i8.LoginController>(() => _i8.LoginController());
-  await gh.singletonAsync<_i9.SharedPreferences>(
+  gh.singleton<_i3.Dio>(appModule.dio);
+  gh.singleton<_i4.EventRepository>(_i5.EventRepositoryImpl());
+  gh.singleton<_i6.Gaps>(_i6.Gaps());
+  await gh.singletonAsync<_i7.SharedPreferences>(
     () => appModule.sharedPreferences,
     preResolve: true,
   );
-  gh.factory<_i10.ShopUseCase>(
-      () => _i10.ShopUseCase(gh<_i5.EventRepository>()));
-  gh.singleton<_i11.ApiService>(_i11.ApiService(gh<_i4.Dio>()));
-  gh.singleton<_i12.AppPref>(_i13.AppPrefImpl(gh<_i9.SharedPreferences>()));
-  gh.singleton<_i14.FavController>(_i14.FavController(gh<_i12.AppPref>()));
-  gh.factory<_i15.HomeController>(
-      () => _i15.HomeController(gh<_i10.ShopUseCase>()));
-  gh.factory<_i16.ShopController>(
-      () => _i16.ShopController(gh<_i10.ShopUseCase>()));
+  gh.factory<_i8.ShopUseCase>(() => _i8.ShopUseCase(gh<_i4.EventRepository>()));
+  gh.singleton<_i9.ApiService>(_i9.ApiService(gh<_i3.Dio>()));
+  gh.singleton<_i10.AppPref>(_i11.AppPrefImpl(gh<_i7.SharedPreferences>()));
+  gh.singleton<_i12.CartController>(_i12.CartController(gh<_i10.AppPref>()));
+  gh.singleton<_i13.FavController>(_i13.FavController(gh<_i10.AppPref>()));
+  gh.factory<_i14.HomeController>(
+      () => _i14.HomeController(gh<_i8.ShopUseCase>()));
+  gh.singleton<_i15.LoginController>(_i15.LoginController(gh<_i10.AppPref>()));
+  gh.factory<_i16.ProfileController>(
+      () => _i16.ProfileController(gh<_i10.AppPref>()));
+  gh.factory<_i17.ShopController>(
+      () => _i17.ShopController(gh<_i8.ShopUseCase>()));
   return getIt;
 }
 
-class _$AppModule extends _i17.AppModule {}
+class _$AppModule extends _i18.AppModule {}

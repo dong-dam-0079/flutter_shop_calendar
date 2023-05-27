@@ -6,6 +6,7 @@ import 'package:shop_laptop_project/presentation/view/detail/detail_view.dart';
 import 'package:shop_laptop_project/presentation/view/favorite/favorite_view.dart';
 import 'package:shop_laptop_project/presentation/view/home/home_view.dart';
 import 'package:shop_laptop_project/presentation/view/login/login_view.dart';
+import 'package:shop_laptop_project/presentation/view/login/otp_view.dart';
 import 'package:shop_laptop_project/presentation/view/main/main_view.dart';
 import 'package:shop_laptop_project/presentation/view/profile/profile_view.dart';
 import 'package:shop_laptop_project/presentation/view/shop/shop_view.dart';
@@ -21,6 +22,12 @@ class HomeRouter extends IRouterProvider {
       NavigatorPaths.login,
       handler: Handler(handlerFunc: (context, __) {
         return const LoginView();
+      }),
+    );
+    router.define(
+      NavigatorPaths.otp,
+      handler: Handler(handlerFunc: (context, __) {
+        return const OtpView();
       }),
     );
 
@@ -90,6 +97,13 @@ class HomeRouter extends IRouterProvider {
     );
   }
 
+  static void goOtp(context) {
+    NavigatorUtils.pushReplacement(
+      context,
+      NavigatorPaths.otp,
+    );
+  }
+
   static void goPay(context) {
     NavigatorUtils.push(
       context,
@@ -109,7 +123,7 @@ class HomeRouter extends IRouterProvider {
   }
 
   static void forceLogout(context) {
-    NavigatorUtils.pushAndRemoveUntil(
+    NavigatorUtils.pushReplacement(
       context,
       NavigatorPaths.login,
     );

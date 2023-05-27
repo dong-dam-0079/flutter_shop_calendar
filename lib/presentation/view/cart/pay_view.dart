@@ -35,6 +35,7 @@ class _PaymentViewState extends State<PaymentView>
   @override
   void initState() {
     super.initState();
+    _cartController.getPhoneNumber();
     _phoneCtrl.text = _cartController.phone.value;
     _tabController = TabController(length: 2, vsync: this);
   }

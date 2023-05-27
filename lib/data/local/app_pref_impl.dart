@@ -29,4 +29,22 @@ class AppPrefImpl implements AppPref {
     String value = jsonEncode(favorites.toJson());
     _pref.setString(CommonConstants.keyFavorites, value);
   }
+
+  @override
+  Future<String> get phoneNumber async =>
+      _pref.getString(CommonConstants.keyPhoneNumber) ?? '';
+
+  @override
+  Future<void> setPhoneNumber(String phoneNumber) async {
+    _pref.setString(CommonConstants.keyPhoneNumber, phoneNumber);
+  }
+
+  @override
+  Future<bool> get firstTime async =>
+      _pref.getBool(CommonConstants.keyFirstTime) ?? false;
+
+  @override
+  Future<void> setFirstTime(bool isFirstTime) async {
+    _pref.setBool(CommonConstants.keyFirstTime, isFirstTime);
+  }
 }

@@ -5,9 +5,14 @@ import 'package:shop_laptop_project/data/model/order_info.dart';
 import 'package:shop_laptop_project/data/model/order_model.dart';
 import 'package:shop_laptop_project/data/model/shop_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shop_laptop_project/domain/pref/app_pref.dart';
 
 @Singleton()
 class CartController extends GetxController {
+  CartController(this._pref);
+
+  final AppPref _pref;
+
   final orderList = <ShopModel>[].obs;
   final subTotal = 0.0.obs;
   final ship = 0.0.obs;
@@ -15,6 +20,10 @@ class CartController extends GetxController {
   final dayOrder = DateTime.now().toStringWithDate().obs;
   final timeOrder = DateTime.now().toStringWithTime().obs;
   final phone = '097327368'.obs;
+
+  Future<void> getPhoneNumber() async {
+    phone.value = await _pref.phoneNumber;
+  }
 
   void addToCart(
     ShopModel item, {

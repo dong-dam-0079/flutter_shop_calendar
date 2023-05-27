@@ -26,6 +26,12 @@ class _CartViewState extends State<CartView> {
   final _cartController = serviceLocator<CartController>();
 
   @override
+  void dispose() {
+    super.dispose();
+    _cartController.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),

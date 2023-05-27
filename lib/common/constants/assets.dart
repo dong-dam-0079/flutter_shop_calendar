@@ -21,7 +21,6 @@ class Assets {
   static const icSad = '$pathIcons/ic_sad.svg';
 
   /// Images
-  static const imgKeyboard = '$pathImages/keyboard.jpg';
-  static const imgChair = '$pathImages/chair.jpeg';
+  static const imgBackground = '$pathImages/img_background.png';
   static const imgSetting = '$pathImages/img_setting.png';
 }

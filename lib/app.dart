@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:shop_laptop_project/presentation/view/main/main_view.dart';
+import 'package:shop_laptop_project/presentation/view/login/login_view.dart';
 
 import 'common/res/colors.dart';
 import 'common/res/themes.dart';
@@ -31,7 +31,7 @@ class App extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      home: const MainView(),
+      home: const LoginView(),
     );
   }
 }

@@ -9,4 +9,5 @@ class NavigatorPaths {
   static const history = '/history';
   static const detail = '/detail';
   static const pay = '/pay';
+  static const otp = '/otp';
 }
