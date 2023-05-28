@@ -61,11 +61,14 @@ class _OtpViewState extends State<OtpView> with BaseMixin {
         children: [
           Expanded(
             child: Center(
-              child: Image.asset(
-                Assets.imgBackground,
-                fit: BoxFit.fill,
-                width: heightImg,
-                height: heightImg,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(DimensRes.sp20),
+                child: Image.asset(
+                  Assets.imgBackground,
+                  fit: BoxFit.fill,
+                  width: heightImg,
+                  height: heightImg,
+                ),
               ),
             ),
           ),
