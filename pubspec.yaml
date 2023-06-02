@@ -85,6 +85,9 @@ dependencies:
   # https://pub.dev/packages/pin_code_fields
   pin_code_fields: ^7.4.0
 
+  # https://pub.dev/packages/calendar_date_picker2
+  calendar_date_picker2: ^0.5.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
