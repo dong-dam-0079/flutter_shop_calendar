@@ -19,6 +19,7 @@ class Assets {
   static const icMinus = '$pathIcons/ic_minus.svg';
   static const icDelete = '$pathIcons/ic_trash.svg';
   static const icSad = '$pathIcons/ic_sad.svg';
+  static const icCalendar = '$pathIcons/ic_calendar.svg';
 
   /// Images
   static const imgBackground = '$pathImages/img_background.png';

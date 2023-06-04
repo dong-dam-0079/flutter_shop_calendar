@@ -1,3 +1,4 @@
+import 'package:shop_laptop_project/data/model/calendar_model.dart';
 import 'package:shop_laptop_project/data/model/shop_response.dart';
 
 abstract class AppPref {
@@ -12,4 +13,8 @@ abstract class AppPref {
   Future<void> setFirstTime(bool isFirstTime);
 
   Future<bool> get firstTime;
+
+  Future<void> setHistoryCalendar(CalendarModel model);
+
+  Future<List<CalendarModel>> get calendars;
 }

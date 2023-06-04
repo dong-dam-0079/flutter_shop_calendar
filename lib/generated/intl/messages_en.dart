@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "button_buy": MessageLookupByLibrary.simpleMessage("Buy"),
         "button_go_favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "button_go_history": MessageLookupByLibrary.simpleMessage("History"),
+        "calendar": MessageLookupByLibrary.simpleMessage("Calendar"),
         "cart": MessageLookupByLibrary.simpleMessage("Cart"),
         "cash_method": MessageLookupByLibrary.simpleMessage("Cash"),
         "complete_your_order": MessageLookupByLibrary.simpleMessage(
@@ -37,7 +38,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "empty": MessageLookupByLibrary.simpleMessage("Empty Order"),
         "empty_fav":
             MessageLookupByLibrary.simpleMessage("Empty favorite item"),
-        "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "message_field_all":
+            MessageLookupByLibrary.simpleMessage("Please fill in all fields"),
+        "method_home": MessageLookupByLibrary.simpleMessage("Home"),
+        "method_store": MessageLookupByLibrary.simpleMessage("Store"),
+        "name": MessageLookupByLibrary.simpleMessage("Name"),
         "pay_method": MessageLookupByLibrary.simpleMessage("Payment methods"),
         "phone_number": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),

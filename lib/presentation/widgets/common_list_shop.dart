@@ -55,7 +55,7 @@ class CommonListShop extends StatelessWidget {
             child: Hero(
               tag: item.shopId,
               child: Container(
-                margin: const EdgeInsets.only(bottom: DimensRes.sp16),
+                margin: const EdgeInsets.all(DimensRes.sp16),
                 decoration: BoxDecoration(
                   color: ColorsRes.primary.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(DimensRes.sp16),

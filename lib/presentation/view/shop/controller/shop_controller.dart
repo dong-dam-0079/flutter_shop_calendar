@@ -17,18 +17,13 @@ class ShopController extends GetxController {
 
   void getListShop() async {
     isLoading.value = true;
+    shopDevices.clear();
     final res = await _shopUseCase.call();
 
     if (res.isRight) {
       final list = res.right.response;
 
-      for (var item in list) {
-        if (item.isCateServices) {
-          shopServices.add(item);
-        } else {
-          shopDevices.add(item);
-        }
-      }
+      shopDevices.addAll(list);
     }
     isLoading.value = false;
   }

@@ -50,11 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Home`
-  String get home {
+  /// `Calendar`
+  String get calendar {
     return Intl.message(
-      'Home',
-      name: 'home',
+      'Calendar',
+      name: 'calendar',
       desc: '',
       args: [],
     );
@@ -325,6 +325,46 @@ class S {
     return Intl.message(
       'Sorry for the inconvenience, we will update the internet banking method later',
       name: 'sorry_atm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get method_home {
+    return Intl.message(
+      'Home',
+      name: 'method_home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Store`
+  String get method_store {
+    return Intl.message(
+      'Store',
+      name: 'method_store',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in all fields`
+  String get message_field_all {
+    return Intl.message(
+      'Please fill in all fields',
+      name: 'message_field_all',
       desc: '',
       args: [],
     );
