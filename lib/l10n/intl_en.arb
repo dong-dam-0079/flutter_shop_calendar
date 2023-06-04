@@ -1,5 +1,5 @@
 {
-  "home": "Home",
+  "calendar": "Calendar",
   "shop": "Shop",
   "cart": "Cart",
   "profile": "Profile",
@@ -26,5 +26,9 @@
   "cash_method": "Cash",
   "atm_method": "Internet Banking",
   "empty_fav": "Empty favorite item",
-  "sorry_atm": "Sorry for the inconvenience, we will update the internet banking method later"
+  "sorry_atm": "Sorry for the inconvenience, we will update the internet banking method later",
+  "name": "Name",
+  "method_home": "Home",
+  "method_store": "Store",
+  "message_field_all": "Please fill in all fields"
 }

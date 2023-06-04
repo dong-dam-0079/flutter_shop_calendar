@@ -4,6 +4,7 @@ import 'package:shop_laptop_project/presentation/view/cart/cart_view.dart';
 import 'package:shop_laptop_project/presentation/view/cart/pay_view.dart';
 import 'package:shop_laptop_project/presentation/view/detail/detail_view.dart';
 import 'package:shop_laptop_project/presentation/view/favorite/favorite_view.dart';
+import 'package:shop_laptop_project/presentation/view/history/history_view.dart';
 import 'package:shop_laptop_project/presentation/view/home/home_view.dart';
 import 'package:shop_laptop_project/presentation/view/login/login_view.dart';
 import 'package:shop_laptop_project/presentation/view/login/otp_view.dart';
@@ -88,12 +89,26 @@ class HomeRouter extends IRouterProvider {
         return const PaymentView();
       }),
     );
+
+    router.define(
+      NavigatorPaths.history,
+      handler: Handler(handlerFunc: (context, __) {
+        return const HistoryView();
+      }),
+    );
   }
 
   static void goMainView(context) {
     NavigatorUtils.pushAndRemoveUntil(
       context,
       NavigatorPaths.main,
+    );
+  }
+
+  static void goHistory(context) {
+    NavigatorUtils.push(
+      context,
+      NavigatorPaths.history,
     );
   }
 

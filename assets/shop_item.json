@@ -139,56 +139,6 @@
       "rating": 4.1,
       "price": 45,
       "is_new": 0
-    },
-    {
-      "id": "shop-15",
-      "name": "Sửa/thay thế màn hình laptop",
-      "category": 1,
-      "describe": "Với một số lỗi màn hình laptop không thể sửa được như nứt, giập vỡ, màn hình bị kẻ sọc, màn hình laptop bị trắng,... thì giải pháp sửa chữa, thay thế màn hình laptop được đưa ra",
-      "image": null,
-      "rating": 4.3,
-      "price": 25,
-      "is_new": 1
-    },
-    {
-      "id": "shop-16",
-      "name": "Thay pin laptop",
-      "category": 1,
-      "describe": "Pin laptop sạc lúc được lúc không, pin laptop sạc mãi không đầy… là một số dấu hiệu cho thấy laptop của bạn cần thay pin.",
-      "image": null,
-      "rating": 4.5,
-      "price": 15,
-      "is_new": 1
-    },
-    {
-      "id": "shop-17",
-      "name": "Thay bàn phím laptop",
-      "category": 1,
-      "describe": "Các lỗi thường gặp liên quan tới bàn phím laptop bao gồm laptop bị vỡ nút, chập phím, liệt phím, laptop bị khóa bàn phím, đơ bàn phím,...",
-      "image": null,
-      "rating": 3.0,
-      "price": 18,
-      "is_new": 1
-    },
-    {
-      "id": "shop-18",
-      "name": "Sửa chữa macbook uy tín",
-      "category": 1,
-      "describe": "Dịch vụ sửa chữa và chăm sóc macbook lấy ngay trong vòng 01 giờ. Với chế độ bảo hành hàng một đổi một nếu có sai hỏng",
-      "image": null,
-      "rating": 4.4,
-      "price": 30,
-      "is_new": 1
-    },
-    {
-      "id": "shop-19",
-      "name": "Nâng cấp phần cứng",
-      "category": 1,
-      "describe": "Thường thì sau một thời gian dài sử dụng, ổ cứng laptop cũng sẽ có những biểu hiện bị hỏng như mắc lỗi bad sector, phát ra âm thanh khi chạy...và cần được thay cái mới",
-      "image": null,
-      "rating": 4.4,
-      "price": 28,
-      "is_new": 1
     }
   ]
 }

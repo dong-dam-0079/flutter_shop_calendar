@@ -9,4 +9,5 @@ class CommonConstants {
   static const keyFavorites = 'favorites';
   static const keyPhoneNumber = 'phone_number';
   static const keyFirstTime = 'first_time';
+  static const keyHistory = 'history';
 }

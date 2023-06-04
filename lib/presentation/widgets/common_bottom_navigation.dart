@@ -30,9 +30,9 @@ class CommonBottomNavigation extends StatelessWidget {
       backgroundColor: ColorsRes.white,
       items: [
         _buildNavItem(
-          activeIcon: Assets.icHome,
-          icon: Assets.icHome,
-          label: S.current.home,
+          activeIcon: Assets.icCalendar,
+          icon: Assets.icCalendar,
+          label: S.current.calendar,
         ),
         _buildNavItem(
           activeIcon: Assets.icShop,
@@ -70,7 +70,7 @@ class CommonBottomNavigation extends StatelessWidget {
       ),
       icon: CommonAssetIcon(
         iconPath: icon,
-        iconColor: ColorsRes.darkGray,
+        iconColor: ColorsRes.textGray,
         isSvg: isSvgIcon,
       ),
       label: label,
