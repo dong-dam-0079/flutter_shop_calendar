@@ -102,6 +102,7 @@ class HomeRouter extends IRouterProvider {
     NavigatorUtils.pushAndRemoveUntil(
       context,
       NavigatorPaths.main,
+      rootNavigator: true
     );
   }
 
@@ -138,9 +139,10 @@ class HomeRouter extends IRouterProvider {
   }
 
   static void forceLogout(context) {
-    NavigatorUtils.pushReplacement(
+    NavigatorUtils.pushAndRemoveUntil(
       context,
       NavigatorPaths.login,
+      rootNavigator: true,
     );
   }
 

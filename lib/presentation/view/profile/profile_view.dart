@@ -84,9 +84,9 @@ class _ProfileViewState extends State<ProfileView> {
                       child: SizedBox(
                         width: double.infinity,
                         child: CommonButton(
-                          onPressed: () async {
-                            await FirebaseAuth.instance.signOut().whenComplete(
-                                () => HomeRouter.forceLogout(context));
+                          onPressed: () {
+                            FirebaseAuth.instance.signOut();
+                            HomeRouter.forceLogout(context);
                           },
                           title: 'Logout',
                         ),
